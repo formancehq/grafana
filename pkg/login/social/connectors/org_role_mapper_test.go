@@ -16,6 +16,7 @@ func TestOrgRoleMapper_MapOrgRoles(t *testing.T) {
 	testCases := []struct {
 		name               string
 		externalOrgs       []string
+		orgMappingRegex    string
 		orgMappingSettings []string
 		directlyMappedRole org.RoleType
 		strictRoleMapping  bool
@@ -198,6 +199,12 @@ func TestOrgRoleMapper_MapOrgRoles(t *testing.T) {
 			directlyMappedRole: org.RoleAdmin,
 			expected:           nil,
 		},
+		{
+			name:            "should map dynamically to 2 different orgs with 2 different roles with one mapping regex",
+			externalOrgs:    []string{"PREFIX_First_SUFFIX_EDITOR", "PREFIX_Second_SUFFIX_ADMIN"},
+			orgMappingRegex: ".*_(.*)_.*_(.*)",
+			expected:        map[int64]org.RoleType{1: org.RoleEditor, 2: org.RoleAdmin},
+		},
 	}
 	orgService := orgtest.NewOrgServiceFake()
 	cfg := setting.NewCfg()
@@ -217,8 +224,8 @@ func TestOrgRoleMapper_MapOrgRoles(t *testing.T) {
 					{Name: "Third", ID: 3},
 				}
 			}
-			mappingCfg := mapper.ParseOrgMappingSettings(context.Background(), tc.orgMappingSettings, tc.strictRoleMapping)
-			actual := mapper.MapOrgRoles(context.TODO(), mappingCfg, tc.externalOrgs, tc.directlyMappedRole)
+			mappingCfg := mapper.ParseOrgMappingSettings(context.Background(), tc.orgMappingSettings, tc.strictRoleMapping, tc.orgMappingRegex)
+			actual := mapper.MapOrgRoles(context.Background(), &mappingCfg, tc.externalOrgs, tc.directlyMappedRole)
 
 			assert.EqualValues(t, tc.expected, actual)
 		})
@@ -233,7 +240,8 @@ func TestOrgRoleMapper_MapOrgRoles_ReturnsDefaultOnNilMapping(t *testing.T) {
 	cfg.AutoAssignOrgRole = string(org.RoleViewer)
 	mapper := ProvideOrgRoleMapper(cfg, orgService)
 
-	actual := mapper.MapOrgRoles(NewMappingConfiguration(map[string]map[int64]org.RoleType{}, false), []string{"First"}, org.RoleNone)
+	mappingConf := NewMappingConfiguration(map[string]map[int64]org.RoleType{}, false)
+	actual := mapper.MapOrgRoles(context.TODO(), &mappingConf, []string{"First"}, org.RoleNone)
 
 	assert.EqualValues(t, map[int64]org.RoleType{2: org.RoleNone}, actual)
 }
@@ -348,7 +356,7 @@ func TestOrgRoleMapper_ParseOrgMappingSettings(t *testing.T) {
 			}
 			mapper := ProvideOrgRoleMapper(cfg, orgService)
 
-			actual := mapper.ParseOrgMappingSettings(context.Background(), tc.rawMapping, tc.roleStrict)
+			actual := mapper.ParseOrgMappingSettings(context.Background(), tc.rawMapping, tc.roleStrict, tc.expected.orgMappingRegex)
 
 			assert.EqualValues(t, tc.expected, actual)
 		})
