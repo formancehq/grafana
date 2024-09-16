@@ -37,6 +37,7 @@ func TestUserInfoSearchesForEmailAndOrgRoles(t *testing.T) {
 		RoleAttributeStrict     bool
 		OrgAttributePath        string
 		OrgMapping              []string
+		OrgMappingRegex         string
 		ExpectedEmail           string
 		ExpectedOrgRoles        map[int64]org.RoleType
 		ExpectedError           error
@@ -521,7 +522,7 @@ func TestUserInfoSearchesForEmailAndOrgRoles(t *testing.T) {
 		provider.info.RoleAttributePath = tc.RoleAttributePath
 		provider.info.OrgAttributePath = tc.OrgAttributePath
 		provider.info.OrgMapping = tc.OrgMapping
-		provider.orgMappingCfg = orgRoleMapper.ParseOrgMappingSettings(context.Background(), tc.OrgMapping, tc.RoleAttributeStrict)
+		provider.orgMappingCfg = orgRoleMapper.ParseOrgMappingSettings(context.Background(), tc.OrgMapping, tc.RoleAttributeStrict, tc.OrgMappingRegex)
 		provider.info.AllowAssignGrafanaAdmin = tc.AllowAssignGrafanaAdmin
 		provider.info.SkipOrgRoleSync = tc.SkipOrgRoleSync
 		provider.info.RoleAttributeStrict = tc.RoleAttributeStrict
