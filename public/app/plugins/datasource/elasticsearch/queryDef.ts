@@ -1,4 +1,7 @@
-import { metricAggregationConfig, pipelineOptions } from './components/QueryEditor/MetricAggregationsEditor/utils';
+import {
+  metricAggregationConfig,
+  pipelineOptions,
+} from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/utils';
 import {
   ElasticsearchQuery,
   ExtendedStat,

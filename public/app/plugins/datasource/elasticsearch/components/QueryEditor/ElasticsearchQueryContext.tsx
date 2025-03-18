@@ -6,8 +6,8 @@ import { ElasticDatasource } from '../../datasource';
 import { combineReducers, useStatelessReducer, DispatchContext } from '../../hooks/useStatelessReducer';
 import { ElasticsearchQuery } from '../../types';
 
-import { createReducer as createBucketAggsReducer } from './BucketAggregationsEditor/state/reducer';
-import { reducer as metricsReducer } from './MetricAggregationsEditor/state/reducer';
+import { createReducer as createBucketAggregationsReducer } from './QueryBuilder/BucketAggregationsEditor/state/reducer';
+import { reducer as metricsReducer } from './QueryBuilder/MetricAggregationsEditor/state/reducer';
 import { aliasPatternReducer, queryReducer, initQuery } from './state';
 
 const DatasourceContext = createContext<ElasticDatasource | undefined>(undefined);
@@ -44,7 +44,7 @@ export const ElasticsearchProvider = ({
     query: queryReducer,
     alias: aliasPatternReducer,
     metrics: metricsReducer,
-    bucketAggs: createBucketAggsReducer(datasource.timeField),
+    bucketAggs: createBucketAggregationsReducer(datasource.timeField),
   });
 
   const dispatch = useStatelessReducer(

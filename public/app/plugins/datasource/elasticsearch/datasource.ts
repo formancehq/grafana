@@ -53,13 +53,13 @@ import { IndexPattern, intervalMap } from './IndexPattern';
 import LanguageProvider from './LanguageProvider';
 import { ElasticQueryBuilder } from './QueryBuilder';
 import { ElasticsearchAnnotationsQueryEditor } from './components/QueryEditor/AnnotationQueryEditor';
-import { isBucketAggregationWithField } from './components/QueryEditor/BucketAggregationsEditor/aggregations';
-import { bucketAggregationConfig } from './components/QueryEditor/BucketAggregationsEditor/utils';
+import { isBucketAggregationWithField } from './components/QueryEditor/QueryBuilder/BucketAggregationsEditor/aggregations';
+import { bucketAggregationConfig } from './components/QueryEditor/QueryBuilder/BucketAggregationsEditor/utils';
 import {
   isMetricAggregationWithField,
   isPipelineAggregationWithMultipleBucketPaths,
-} from './components/QueryEditor/MetricAggregationsEditor/aggregations';
-import { metricAggregationConfig } from './components/QueryEditor/MetricAggregationsEditor/utils';
+} from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/aggregations';
+import { metricAggregationConfig } from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/utils';
 import { isMetricAggregationWithMeta } from './guards';
 import {
   addAddHocFilter,

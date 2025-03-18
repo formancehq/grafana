@@ -26,6 +26,12 @@ composableKinds: DataQuery: {
 			version: [0, 0]
 			schema: {
 				common.DataQuery
+				
+				// Builder or raw query
+				queryMode?: #ElasticSearchQueryMode
+
+				// Raw query for queryMode 'builder'
+				rawQuery?: string
 
 				// Alias pattern
 				alias?: string
@@ -37,6 +43,8 @@ composableKinds: DataQuery: {
 				bucketAggs?: [...#BucketAggregation]
 				// List of metric aggregations
 				metrics?: [...#MetricAggregation]
+
+				#ElasticSearchQueryMode: "builder" | "raw" @cuetsy(kind="enum")
 
 				#BucketAggregation: #DateHistogram | #Histogram | #Terms | #Filters | #GeoHashGrid | #Nested @cuetsy(kind="type")
 				#MetricAggregation: #Count | #PipelineMetricAggregation | #MetricAggregationWithSettings     @cuetsy(kind="type")

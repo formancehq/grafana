@@ -6,7 +6,7 @@ import {
   isMovingAverageWithModelSettings,
   isPipelineAggregation,
   isPipelineAggregationWithMultipleBucketPaths,
-} from './components/QueryEditor/MetricAggregationsEditor/aggregations';
+} from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/aggregations';
 import {
   defaultBucketAgg,
   defaultMetricAgg,

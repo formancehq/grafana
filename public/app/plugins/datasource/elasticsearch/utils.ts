@@ -1,7 +1,7 @@
 import { gte, SemVer } from 'semver';
 
-import { isMetricAggregationWithField } from './components/QueryEditor/MetricAggregationsEditor/aggregations';
-import { metricAggregationConfig } from './components/QueryEditor/MetricAggregationsEditor/utils';
+import { isMetricAggregationWithField } from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/aggregations';
+import { metricAggregationConfig } from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/utils';
 import { ElasticsearchQuery, MetricAggregation, MetricAggregationWithInlineScript } from './types';
 
 export const describeMetric = (metric: MetricAggregation) => {

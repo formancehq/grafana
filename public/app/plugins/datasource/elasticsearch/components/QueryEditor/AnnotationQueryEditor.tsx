@@ -4,7 +4,9 @@ import { Input, Stack } from '@grafana/ui';
 
 import { ElasticsearchQuery } from '../../types';
 
-import { ElasticQueryEditorProps, ElasticSearchQueryField } from './index';
+import { ElasticSearchQueryField } from './QueryBuilder/QueryBuilder';
+
+import { ElasticQueryEditorProps } from './index';
 
 type Props = ElasticQueryEditorProps & {
   annotation?: AnnotationQuery<ElasticsearchQuery>;

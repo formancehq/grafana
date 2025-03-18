@@ -17,6 +17,13 @@ import (
 	fmt "fmt"
 )
 
+type ElasticSearchQueryMode string
+
+const (
+	ElasticSearchQueryModeBuilder ElasticSearchQueryMode = "builder"
+	ElasticSearchQueryModeRaw     ElasticSearchQueryMode = "raw"
+)
+
 type BucketAggregation = DateHistogramOrHistogramOrTermsOrFiltersOrGeoHashGridOrNested
 
 // NewBucketAggregation creates a new BucketAggregation object.
@@ -771,6 +778,10 @@ func NewMovingAverageHoltWintersModelSettings() *MovingAverageHoltWintersModelSe
 }
 
 type ElasticsearchDataQuery struct {
+	// Builder or raw query
+	QueryMode *ElasticSearchQueryMode `json:"queryMode,omitempty"`
+	// Raw query for queryMode 'builder'
+	RawQuery *string `json:"rawQuery,omitempty"`
 	// Alias pattern
 	Alias *string `json:"alias,omitempty"`
 	// Lucene query

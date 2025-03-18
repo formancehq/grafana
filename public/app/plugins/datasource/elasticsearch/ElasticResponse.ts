@@ -11,8 +11,8 @@ import {
 import { convertFieldType } from '@grafana/data/src/transformations/transformers/convertFieldType';
 import TableModel from 'app/core/TableModel';
 
-import { isMetricAggregationWithField } from './components/QueryEditor/MetricAggregationsEditor/aggregations';
-import { metricAggregationConfig } from './components/QueryEditor/MetricAggregationsEditor/utils';
+import { isMetricAggregationWithField } from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/aggregations';
+import { metricAggregationConfig } from './components/QueryEditor/QueryBuilder/MetricAggregationsEditor/utils';
 import * as queryDef from './queryDef';
 import { ElasticsearchAggregation, ElasticsearchQuery, TopMetrics, ExtendedStatMetaType } from './types';
 import { describeMetric, flattenObject, getScriptValue } from './utils';
