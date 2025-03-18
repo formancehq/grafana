@@ -87,7 +87,8 @@ func parseResponse(ctx context.Context, responses []*es.SearchResponse, targets 
 				return &backend.QueryDataResponse{}, err
 			}
 			result.Responses[target.RefID] = queryRes
-		} else if isRawDocumentQuery(target) {
+		} else if true {
+		// } else if isRawDocumentQuery(target) {
 			err := processRawDocumentResponse(res, target, &queryRes, logger)
 			if err != nil {
 				// TODO: This error never happens so we should remove it

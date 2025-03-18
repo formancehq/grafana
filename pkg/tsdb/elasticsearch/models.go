@@ -18,6 +18,9 @@ type Query struct {
 	RefID         string
 	MaxDataPoints int64
 	TimeRange     backend.TimeRange
+
+	QueryMode string `json:"queryMode"`
+	RawQueryModeSettings *simplejson.Json `json:"rawQueryModeSettings"`
 }
 
 // BucketAgg represents a bucket aggregation of the time series query model of the datasource

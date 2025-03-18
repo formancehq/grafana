@@ -12,16 +12,16 @@ export const RawQueryEditor = (props: RawQueryEditorProps) => {
         // for time series
         // <EditorRows>
         //     <EditorRow>
-        //         <EditorField label="Time field" onChange={e => props.onChange({ ...props, rawQuery: e.target.value })} label="Query"><Input/></EditorField>
+        //         <EditorField label="Time field" onChange={e => props.onChange({ ...props, rawQuery: e.target.value })}><Input/></EditorField>
         //     </EditorRow>
         // </EditorRows>
         <CodeEditor
             language="json"
-            value={props.query.rawQuery || ""}
+            value={props.query.query || ""}
             height="200px"
             showLineNumbers={true}
             showMiniMap={false}
-            onBlur={e => props.onChange({ ...props.query, rawQuery: e })}
+            onBlur={e => props.onChange({ ...props.query, query: e })}
             
         />
     )

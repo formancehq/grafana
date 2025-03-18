@@ -113,12 +113,25 @@ func (c *baseClientImpl) encodeBatchRequests(requests []*multiRequest) ([]byte, 
 		}
 		payload.WriteString(string(reqHeader) + "\n")
 
-		reqBody, err := json.Marshal(r.body)
-		if err != nil {
-			return nil, err
+		reqBody := []byte{}
+		body := ""
+		switch r.body.(type) {
+			case SearchRequest:
+				reqBody, err = json.Marshal(r.body)
+				if err != nil {
+					return nil, err
+				}
+				body = string(reqBody)
+			case string:
+				body = r.body.(string)
+			default:
+				return nil, fmt.Errorf("unknown request type: %T", r.body)
 		}
+		
+		
 
-		body := string(reqBody)
+		// body = "{  \"size\": 2,  \"query\": {    \"bool\": {      \"must\": [        { \"match\": { \"Carrier\": \"JetBeats\" }},        { \"match\": { \"FlightDelayType\": \"No Delay\" }}      ]    }  }}"
+
 		body = strings.ReplaceAll(body, "$__interval_ms", strconv.FormatInt(r.interval.Milliseconds(), 10))
 		body = strings.ReplaceAll(body, "$__interval", r.interval.String())
 
@@ -429,24 +442,46 @@ func skipUnknownField(dec *json.Decoder) error {
 	}
 }
 
-func (c *baseClientImpl) createMultiSearchRequests(searchRequests []*SearchRequest) []*multiRequest {
+func (c *baseClientImpl) createMultiSearchRequests(searchRequests []interface{}) []*multiRequest {
 	multiRequests := []*multiRequest{}
 
 	for _, searchReq := range searchRequests {
-		indices, err := c.indexPattern.GetIndices(searchReq.TimeRange)
-		if err != nil {
-			c.logger.Error("Failed to get indices from index pattern", "error", err)
+		mr := multiRequest{}
+		
+		if sr, ok := (searchReq).(SearchRequest); ok {
+			indices, err := c.indexPattern.GetIndices(sr.TimeRange)
+			if err != nil {
+				c.logger.Error("Failed to get indices from index pattern", "error", err)
+				continue
+			}
+			mr = multiRequest{
+				header: map[string]any{
+					"search_type":        "query_then_fetch",
+					"ignore_unavailable": true,
+					"index":              strings.Join(indices, ","),
+				},
+				body:     sr,
+				interval: sr.Interval,
+			}
+		} else if sr, ok := (searchReq).(RawSearchRequest); ok {
+			indices, err := c.indexPattern.GetIndices(sr.TimeRange)
+			if err != nil {
+				c.logger.Error("Failed to get indices from index pattern", "error", err)
+				continue
+			}
+			mr = multiRequest{
+				header: map[string]any{
+					"search_type":        "query_then_fetch",
+					"ignore_unavailable": true,
+					"index":              strings.Join(indices, ","),
+				},
+				body:     sr.Query,
+			}
+		} else {
+			c.logger.Error("Unknown search request type", "type", fmt.Sprintf("%T", searchReq))
 			continue
 		}
-		mr := multiRequest{
-			header: map[string]any{
-				"search_type":        "query_then_fetch",
-				"ignore_unavailable": true,
-				"index":              strings.Join(indices, ","),
-			},
-			body:     searchReq,
-			interval: searchReq.Interval,
-		}
+		
 
 		multiRequests = append(multiRequests, &mr)
 	}

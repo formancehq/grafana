@@ -403,10 +403,6 @@ export interface ElasticsearchDataQuery extends common.DataQuery {
    */
   queryMode?: ElasticSearchQueryMode;
   /**
-   * Raw query for queryMode 'builder'
-   */
-  rawQuery?: string;
-  /**
    * Name of time field
    */
   timeField?: string;

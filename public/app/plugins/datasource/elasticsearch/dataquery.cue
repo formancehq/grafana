@@ -30,9 +30,6 @@ composableKinds: DataQuery: {
 				// Builder or raw query
 				queryMode?: #ElasticSearchQueryMode
 
-				// Raw query for queryMode 'builder'
-				rawQuery?: string
-
 				// Alias pattern
 				alias?: string
 				// Lucene query
