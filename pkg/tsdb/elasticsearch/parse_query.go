@@ -31,6 +31,8 @@ func parseQuery(tsdbQuery []backend.DataQuery, logger log.Logger) ([]*Query, err
 			logger.Error("Failed to parse metrics in query", "error", err, "model", string(q.JSON))
 			return nil, err
 		}
+		rawQuerySettings, err := parseRawQuerySettings(model)
+
 		alias := model.Get("alias").MustString("")
 		intervalMs := model.Get("intervalMs").MustInt64(0)
 		interval := q.Interval
@@ -46,6 +48,7 @@ func parseQuery(tsdbQuery []backend.DataQuery, logger log.Logger) ([]*Query, err
 			MaxDataPoints: q.MaxDataPoints,
 			TimeRange:     q.TimeRange,
 			QueryMode:    queryMode,
+			RawQueryModeSettings: rawQuerySettings,
 		})
 	}
 
@@ -78,6 +81,20 @@ func parseBucketAggs(model *simplejson.Json) ([]*BucketAgg, error) {
 	return result, nil
 }
 
+func parseRawQuerySettings(model *simplejson.Json) (*RawQuerySettings, error) {
+	settings := simplejson.NewFromAny(model.Get("rawQuerySettings").MustMap())
+	result :=  RawQuerySettings{}
+	if settings == nil {
+		return nil, nil
+	}
+
+	result.ProcessAs = settings.Get("processAs").MustString("table")
+	// return an error if processAs == time series and timefield or value field are empty
+	result.TimeField = settings.Get("timeField").MustString("")
+	result.ValueField = settings.Get("valueField").MustString("")
+
+	return &result, nil
+}
 func parseMetrics(model *simplejson.Json) ([]*MetricAgg, error) {
 	var err error
 	metrics := model.Get("metrics").MustArray()

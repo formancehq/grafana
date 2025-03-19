@@ -455,6 +455,17 @@ func NewTopMetrics() *TopMetrics {
 	}
 }
 
+type RawQuerySettings struct {
+	TimeField  *string                    `json:"timeField,omitempty"`
+	ValueField *string                    `json:"valueField,omitempty"`
+	ProcessAs  *RawQuerySettingsProcessAs `json:"processAs,omitempty"`
+}
+
+// NewRawQuerySettings creates a new RawQuerySettings object.
+func NewRawQuerySettings() *RawQuerySettings {
+	return &RawQuerySettings{}
+}
+
 type BucketAggregationType string
 
 const (
@@ -780,8 +791,6 @@ func NewMovingAverageHoltWintersModelSettings() *MovingAverageHoltWintersModelSe
 type ElasticsearchDataQuery struct {
 	// Builder or raw query
 	QueryMode *ElasticSearchQueryMode `json:"queryMode,omitempty"`
-	// Raw query for queryMode 'builder'
-	RawQuery *string `json:"rawQuery,omitempty"`
 	// Alias pattern
 	Alias *string `json:"alias,omitempty"`
 	// Lucene query
@@ -792,6 +801,8 @@ type ElasticsearchDataQuery struct {
 	BucketAggs []BucketAggregation `json:"bucketAggs,omitempty"`
 	// List of metric aggregations
 	Metrics []MetricAggregation `json:"metrics,omitempty"`
+	// settingsfor raw query
+	RawQuerySettings *RawQuerySettings `json:"rawQuerySettings,omitempty"`
 	// A unique identifier for the query within the list of targets.
 	// In server side expressions, the refId is used as a variable name to identify results.
 	// By default, the UI will assign A->Z; however setting meaningful names may be useful.
@@ -1092,6 +1103,14 @@ type DataqueryMovingAverageHoltWintersModelSettingsSettings struct {
 func NewDataqueryMovingAverageHoltWintersModelSettingsSettings() *DataqueryMovingAverageHoltWintersModelSettingsSettings {
 	return &DataqueryMovingAverageHoltWintersModelSettingsSettings{}
 }
+
+type RawQuerySettingsProcessAs string
+
+const (
+	RawQuerySettingsProcessAsLogs       RawQuerySettingsProcessAs = "logs"
+	RawQuerySettingsProcessAsTimeSeries RawQuerySettingsProcessAs = "time_series"
+	RawQuerySettingsProcessAsTable      RawQuerySettingsProcessAs = "table"
+)
 
 type DateHistogramOrHistogramOrTermsOrFiltersOrGeoHashGridOrNested struct {
 	DateHistogram *DateHistogram `json:"DateHistogram,omitempty"`

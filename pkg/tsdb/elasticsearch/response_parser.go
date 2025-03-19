@@ -79,30 +79,32 @@ func parseResponse(ctx context.Context, responses []*es.SearchResponse, targets 
 		}
 
 		queryRes := backend.DataResponse{}
-
-		if isRawDataQuery(target) {
+switch getProcessingType(target) {
+case "table": {
 			err := processRawDataResponse(res, target, configuredFields, &queryRes, logger)
 			if err != nil {
 				// TODO: This error never happens so we should remove it
 				return &backend.QueryDataResponse{}, err
 			}
 			result.Responses[target.RefID] = queryRes
-		} else if true {
-		// } else if isRawDocumentQuery(target) {
+		}
+		case "raw_document": {
 			err := processRawDocumentResponse(res, target, &queryRes, logger)
 			if err != nil {
 				// TODO: This error never happens so we should remove it
 				return &backend.QueryDataResponse{}, err
 			}
 			result.Responses[target.RefID] = queryRes
-		} else if isLogsQuery(target) {
+		} 
+		case "logs": {
 			err := processLogsResponse(res, target, configuredFields, &queryRes, logger)
 			if err != nil {
 				// TODO: This error never happens so we should remove it
 				return &backend.QueryDataResponse{}, err
 			}
 			result.Responses[target.RefID] = queryRes
-		} else {
+		} 
+		case "time_series": {
 			// Process as metric query result
 			props := make(map[string]string)
 			err := processBuckets(res.Aggregations, target, &queryRes, props, 0)
@@ -123,11 +125,30 @@ func parseResponse(ctx context.Context, responses []*es.SearchResponse, targets 
 
 			result.Responses[target.RefID] = queryRes
 		}
+	} 
 		instrumentation.UpdatePluginParsingResponseDurationSeconds(ctx, time.Since(start), "ok")
 		logger.Info("Finished processing of response", "duration", time.Since(start), "stage", es.StageParseResponse)
 		resSpan.End()
 	}
+	
 	return &result, nil
+}
+
+func getProcessingType(target *Query) string {
+	if target.QueryMode == "raw" {
+		return target.RawQueryModeSettings.ProcessAs
+	} else {
+		if isRawDataQuery(target)  {
+			// yeah the namings's not great
+			return "table"
+		} else if isRawDocumentQuery(target) {
+			return "raw_document"
+		
+		} else if isLogsQuery(target){
+			return "logs"
+		} 
+		  return "time_series"
+	}
 }
 
 func processLogsResponse(res *es.SearchResponse, target *Query, configuredFields es.ConfiguredFields, queryRes *backend.DataResponse, logger log.Logger) error {
@@ -409,6 +430,8 @@ func processBuckets(aggs map[string]interface{}, target *Query,
 	sort.Strings(aggIDs)
 	for _, aggID := range aggIDs {
 		v := aggs[aggID]
+		// TODO for raw query editor: here it should find the timeField and valueField (or multiple) from rawQuerySettings config
+		// value fields can be separated by comma, validation should probably occur before this on FE or BE
 		aggDef, _ := findAgg(target, aggID)
 		esAgg := simplejson.NewFromAny(v)
 		if aggDef == nil {

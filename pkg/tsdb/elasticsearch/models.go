@@ -20,9 +20,14 @@ type Query struct {
 	TimeRange     backend.TimeRange
 
 	QueryMode string `json:"queryMode"`
-	RawQueryModeSettings *simplejson.Json `json:"rawQueryModeSettings"`
+	RawQueryModeSettings *RawQuerySettings `json:"rawQueryModeSettings"`
 }
 
+type RawQuerySettings struct {
+	ProcessAs string `json:"processAs"`
+	TimeField string `json:"timeField,omitempty"`
+	ValueField string `json:"valueField,omitempty"`
+}
 // BucketAgg represents a bucket aggregation of the time series query model of the datasource
 type BucketAgg struct {
 	Field    string           `json:"field"`
