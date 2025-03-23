@@ -97,7 +97,7 @@ export const ComboboxList = <T extends string | number>({
             >
               {/* Group header */}
               {startingNewGroup && (
-                <div role="presentation" id={groupHeaderId} className={styles.newOptionGroup}>
+                <div role="presentation" id={groupHeaderId} className={styles.optionGroupHeader}>
                   {item.group}
                 </div>
               )}
