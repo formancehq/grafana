@@ -9,6 +9,8 @@
     "build": "NODE_ENV=production nx exec --verbose -- webpack --config scripts/webpack/webpack.prod.js --progress",
     "build:nominify": "yarn run build -- --env noMinify=1",
     "build:stats": "NODE_ENV=production webpack --progress --config scripts/webpack/webpack.stats.js",
+    "biome:check": "biome format",
+    "biome:write": "biome format --write",
     "dev": "NODE_ENV=dev nx exec -- webpack --config scripts/webpack/webpack.dev.js",
     "e2e": "./e2e/start-and-run-suite",
     "e2e:old-arch": "./e2e/start-and-run-suite old-arch",
@@ -76,6 +78,7 @@
     "@babel/runtime": "7.26.10",
     "@betterer/betterer": "5.4.0",
     "@betterer/cli": "5.4.0",
+    "@biomejs/biome": "^1.9.4",
     "@cypress/webpack-preprocessor": "6.0.2",
     "@emotion/eslint-plugin": "11.12.0",
     "@grafana/eslint-config": "8.0.0",
@@ -441,12 +444,7 @@
     "swagger-ui-react/dompurify": "3.2.4"
   },
   "workspaces": {
-    "packages": [
-      "packages/*",
-      "packages/!(grafana-icons)/**",
-      "public/app/plugins/*/*",
-      "e2e/test-plugins/*"
-    ]
+    "packages": ["packages/*", "packages/!(grafana-icons)/**", "public/app/plugins/*/*", "e2e/test-plugins/*"]
   },
   "engines": {
     "node": ">= 22"
@@ -458,8 +456,6 @@
     }
   },
   "msw": {
-    "workerDirectory": [
-      "public"
-    ]
+    "workerDirectory": ["public"]
   }
 }

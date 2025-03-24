@@ -1,0 +1,40 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "formatter": {
+    "indentWidth": 2,
+    "indentStyle": "space",
+    "lineWidth": 120,
+    "ignore": [
+      // Generated
+      ".nx/",
+      // Generated
+      "node_modules/",
+      // Intentional invalid data
+      "pkg/services/provisioning/dashboards/testdata/test-dashboards/",
+      // Intentional invalid data
+      "pkg/services/pluginsintegration/pluginassets/testdata",
+      // Intentional invalid data
+      "pkg/plugins/manager/testdata/",
+      // Generated
+      "public/vendor/",
+      // Generated
+      "public/build/",
+      // Generated
+      "public/dashboards/",
+      // Generated
+      "devenv/",
+      // Generated
+      "public/locales/"
+    ],
+    "formatWithErrors": true
+  },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "es5",
+      "quoteStyle": "single"
+    }
+  },
+  "files": {
+    "maxSize": 16777216
+  }
+}
