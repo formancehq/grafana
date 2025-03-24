@@ -34,7 +34,12 @@
       "public/api-merged.json",
       "public/api-enterprise-spec.json",
       // Generated testdata
-      "**/testdata/**/*.golden.jsonc",
+      "**/testdata*/**/*.json",
+      "**/testdata*/**/*.jsonc",
+      "**/test-data*/**/*.json",
+      "**/test-data*/**/*.jsonc",
+      "public/app/plugins/datasource/cloud-monitoring/dashboards/",
+      "pkg/tsdb/loki/test_non_dataplane/",
       // Generated sources
       "**/*.gen.ts",
       "**/*.gen.js",
