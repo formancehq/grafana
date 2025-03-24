@@ -36,5 +36,8 @@
   },
   "files": {
     "maxSize": 16777216
+  },
+  "vcs": {
+    "defaultBranch": "main"
   }
 }
