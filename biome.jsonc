@@ -23,33 +23,25 @@
     "ignore": [
       // Generated
       ".nx/",
-      // Generated
       "node_modules/",
-      // Intentional invalid data
-      "pkg/services/provisioning/dashboards/testdata/test-dashboards/",
-      // Intentional invalid data
-      "pkg/services/pluginsintegration/pluginassets/testdata",
-      // Intentional invalid data
-      "pkg/plugins/manager/testdata/",
-      // Generated
       "public/vendor/",
-      // Generated
       "public/build/",
-      // Generated
       "public/dashboards/",
-      // Generated
       "devenv/",
-      // Generated
       "public/locales/",
-      // Generated
       "generated/",
-      // Generated OpenAPI
       "public/openapi3.json",
       "public/api-merged.json",
       "public/api-enterprise-spec.json",
+      // Generated testdata
+      "**/testdata/**/*.golden.jsonc",
       // Generated sources
       "**/*.gen.ts",
-      "**/*.gen.js"
+      "**/*.gen.js",
+      // Intentional invalid data
+      "pkg/services/provisioning/dashboards/testdata/test-dashboards/",
+      "pkg/services/pluginsintegration/pluginassets/testdata",
+      "pkg/plugins/manager/testdata/"
     ]
   },
   "vcs": {
