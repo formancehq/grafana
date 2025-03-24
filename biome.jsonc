@@ -4,6 +4,22 @@
     "indentWidth": 2,
     "indentStyle": "space",
     "lineWidth": 120,
+    "formatWithErrors": true
+  },
+  "linter": {
+    "enabled": false
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "javascript": {
+    "formatter": {
+      "trailingCommas": "es5",
+      "quoteStyle": "single"
+    }
+  },
+  "files": {
+    "maxSize": 16777216,
     "ignore": [
       // Generated
       ".nx/",
@@ -24,18 +40,17 @@
       // Generated
       "devenv/",
       // Generated
-      "public/locales/"
-    ],
-    "formatWithErrors": true
-  },
-  "javascript": {
-    "formatter": {
-      "trailingCommas": "es5",
-      "quoteStyle": "single"
-    }
-  },
-  "files": {
-    "maxSize": 16777216
+      "public/locales/",
+      // Generated
+      "generated/",
+      // Generated OpenAPI
+      "public/openapi3.json",
+      "public/api-merged.json",
+      "public/api-enterprise-spec.json",
+      // Generated sources
+      "**/*.gen.ts",
+      "**/*.gen.js"
+    ]
   },
   "vcs": {
     "defaultBranch": "main"
