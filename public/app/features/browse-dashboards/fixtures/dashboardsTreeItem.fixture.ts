@@ -90,14 +90,34 @@ export function wellFormedTree() {
 
   // prettier-ignore so its easier to see the tree structure
   /* prettier-ignore */ const folderA = wellFormedFolder(seed++);
-  /* prettier-ignore */ const folderA_folderA = wellFormedFolder(seed++, { level: 1}, { parentUID: folderA.item.uid });
-  /* prettier-ignore */ const folderA_folderB = wellFormedFolder(seed++, { level: 1}, { parentUID: folderA.item.uid });
-  /* prettier-ignore */ const folderA_folderB_dashbdA = wellFormedDashboard(seed++, { level: 2}, { parentUID: folderA_folderB.item.uid });
-  /* prettier-ignore */ const folderA_folderB_dashbdB = wellFormedDashboard(seed++, { level: 2}, { parentUID: folderA_folderB.item.uid });
-  /* prettier-ignore */ const folderA_folderC = wellFormedFolder(seed++, { level: 1},{ parentUID: folderA.item.uid });
-  /* prettier-ignore */ const folderA_folderC_dashbdA = wellFormedDashboard(seed++, { level: 2}, { parentUID: folderA_folderC.item.uid });
-  /* prettier-ignore */ const folderA_folderC_dashbdB = wellFormedDashboard(seed++, { level: 2}, { parentUID: folderA_folderC.item.uid });
-  /* prettier-ignore */ const folderA_dashbdD = wellFormedDashboard(seed++, { level: 1}, { parentUID: folderA.item.uid });
+  /* prettier-ignore */ const folderA_folderA = wellFormedFolder(seed++, { level: 1 }, { parentUID: folderA.item.uid });
+  /* prettier-ignore */ const folderA_folderB = wellFormedFolder(seed++, { level: 1 }, { parentUID: folderA.item.uid });
+  /* prettier-ignore */ const folderA_folderB_dashbdA = wellFormedDashboard(
+    seed++,
+    { level: 2 },
+    { parentUID: folderA_folderB.item.uid }
+  );
+  /* prettier-ignore */ const folderA_folderB_dashbdB = wellFormedDashboard(
+    seed++,
+    { level: 2 },
+    { parentUID: folderA_folderB.item.uid }
+  );
+  /* prettier-ignore */ const folderA_folderC = wellFormedFolder(seed++, { level: 1 }, { parentUID: folderA.item.uid });
+  /* prettier-ignore */ const folderA_folderC_dashbdA = wellFormedDashboard(
+    seed++,
+    { level: 2 },
+    { parentUID: folderA_folderC.item.uid }
+  );
+  /* prettier-ignore */ const folderA_folderC_dashbdB = wellFormedDashboard(
+    seed++,
+    { level: 2 },
+    { parentUID: folderA_folderC.item.uid }
+  );
+  /* prettier-ignore */ const folderA_dashbdD = wellFormedDashboard(
+    seed++,
+    { level: 1 },
+    { parentUID: folderA.item.uid }
+  );
   /* prettier-ignore */ const folderB = wellFormedFolder(seed++);
   /* prettier-ignore */ const folderB_empty = wellFormedEmptyFolder(seed++);
   /* prettier-ignore */ const folderC = wellFormedFolder(seed++);

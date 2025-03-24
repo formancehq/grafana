@@ -7,9 +7,7 @@
   "paths": {
     "/apis/dashboard.grafana.app/v0alpha1/": {
       "get": {
-        "tags": [
-          "API Discovery"
-        ],
+        "tags": ["API Discovery"],
         "description": "Describe the available kubernetes resources",
         "operationId": "getAPIResources",
         "responses": {
@@ -38,9 +36,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/dashboards": {
       "get": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "list objects of kind Dashboard",
         "operationId": "listDashboard",
         "parameters": [
@@ -175,9 +171,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "create a Dashboard",
         "operationId": "createDashboard",
         "parameters": [
@@ -299,9 +293,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "delete collection of Dashboard",
         "operationId": "deletecollectionDashboard",
         "parameters": [
@@ -476,9 +468,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/dashboards/{name}": {
       "get": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "read the specified Dashboard",
         "operationId": "getDashboard",
         "responses": {
@@ -511,9 +501,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "replace the specified Dashboard",
         "operationId": "replaceDashboard",
         "parameters": [
@@ -615,9 +603,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "delete a Dashboard",
         "operationId": "deleteDashboard",
         "parameters": [
@@ -717,9 +703,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "partially update the specified Dashboard",
         "operationId": "updateDashboard",
         "parameters": [
@@ -868,9 +852,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/dashboards/{name}/dto": {
       "get": {
-        "tags": [
-          "Dashboard"
-        ],
+        "tags": ["Dashboard"],
         "description": "connect GET requests to dto of Dashboard",
         "operationId": "getDashboardDto",
         "responses": {
@@ -917,9 +899,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/librarypanels": {
       "get": {
-        "tags": [
-          "LibraryPanel"
-        ],
+        "tags": ["LibraryPanel"],
         "description": "list objects of kind LibraryPanel",
         "operationId": "listLibraryPanel",
         "responses": {
@@ -1075,9 +1055,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/librarypanels/{name}": {
       "get": {
-        "tags": [
-          "LibraryPanel"
-        ],
+        "tags": ["LibraryPanel"],
         "description": "read the specified LibraryPanel",
         "operationId": "getLibraryPanel",
         "responses": {
@@ -1143,9 +1121,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/search": {
       "get": {
-        "tags": [
-          "Search"
-        ],
+        "tags": ["Search"],
         "description": "Dashboard search",
         "parameters": [
           {
@@ -1202,10 +1178,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "totalHits",
-                    "hits"
-                  ],
+                  "required": ["totalHits", "hits"],
                   "properties": {
                     "apiVersion": {
                       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1263,9 +1236,7 @@
     },
     "/apis/dashboard.grafana.app/v0alpha1/namespaces/{namespace}/search/sortable": {
       "get": {
-        "tags": [
-          "Search"
-        ],
+        "tags": ["Search"],
         "description": "Get sortable fields",
         "parameters": [
           {
@@ -1285,9 +1256,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "required": [
-                    "fields"
-                  ],
+                  "required": ["fields"],
                   "properties": {
                     "apiVersion": {
                       "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1323,9 +1292,7 @@
           "datasource": {
             "description": "The datasource",
             "type": "object",
-            "required": [
-              "type"
-            ],
+            "required": ["type"],
             "properties": {
               "apiVersion": {
                 "description": "The apiserver version",
@@ -1365,9 +1332,7 @@
           "resultAssertions": {
             "description": "Optionally define expected query result behavior",
             "type": "object",
-            "required": [
-              "typeVersion"
-            ],
+            "required": ["typeVersion"],
             "properties": {
               "maxFrames": {
                 "description": "Maximum frame count",
@@ -1406,26 +1371,19 @@
           "timeRange": {
             "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
             "type": "object",
-            "required": [
-              "from",
-              "to"
-            ],
+            "required": ["from", "to"],
             "properties": {
               "from": {
                 "description": "From is the start time of the query.",
                 "type": "string",
                 "default": "now-6h",
-                "examples": [
-                  "now-1h"
-                ]
+                "examples": ["now-1h"]
               },
               "to": {
                 "description": "To is the end time of the query.",
                 "type": "string",
                 "default": "now",
-                "examples": [
-                  "now"
-                ]
+                "examples": ["now"]
               }
             },
             "additionalProperties": false
@@ -1440,11 +1398,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.AnnotationActions": {
         "type": "object",
-        "required": [
-          "canAdd",
-          "canEdit",
-          "canDelete"
-        ],
+        "required": ["canAdd", "canEdit", "canDelete"],
         "properties": {
           "canAdd": {
             "type": "boolean",
@@ -1462,10 +1416,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.AnnotationPermission": {
         "type": "object",
-        "required": [
-          "dashboard",
-          "organization"
-        ],
+        "required": ["dashboard", "organization"],
         "properties": {
           "dashboard": {
             "default": {},
@@ -1487,11 +1438,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.Dashboard": {
         "type": "object",
-        "required": [
-          "metadata",
-          "spec",
-          "status"
-        ],
+        "required": ["metadata", "spec", "status"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1536,14 +1483,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.DashboardAccess": {
         "type": "object",
-        "required": [
-          "canSave",
-          "canEdit",
-          "canAdmin",
-          "canStar",
-          "canDelete",
-          "annotationsPermissions"
-        ],
+        "required": ["canSave", "canEdit", "canAdmin", "canStar", "canDelete", "annotationsPermissions"],
         "properties": {
           "annotationsPermissions": {
             "$ref": "#/components/schemas/com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.AnnotationPermission"
@@ -1581,11 +1521,7 @@
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.DashboardConversionStatus": {
         "description": "ConversionStatus is the status of the conversion of the dashboard.",
         "type": "object",
-        "required": [
-          "failed",
-          "storedVersion",
-          "error"
-        ],
+        "required": ["failed", "storedVersion", "error"],
         "properties": {
           "error": {
             "description": "The error message from the conversion. Empty if the conversion has not failed.",
@@ -1606,10 +1542,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.DashboardList": {
         "type": "object",
-        "required": [
-          "metadata",
-          "items"
-        ],
+        "required": ["metadata", "items"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1663,12 +1596,7 @@
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.DashboardWithAccessInfo": {
         "description": "This is like the legacy DTO where access and metadata are all returned in a single call",
         "type": "object",
-        "required": [
-          "metadata",
-          "spec",
-          "status",
-          "access"
-        ],
+        "required": ["metadata", "spec", "status", "access"],
         "properties": {
           "access": {
             "default": {},
@@ -1721,9 +1649,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.LibraryPanel": {
         "type": "object",
-        "required": [
-          "spec"
-        ],
+        "required": ["spec"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1809,11 +1735,7 @@
       },
       "com.github.grafana.grafana.apps.dashboard.pkg.apis.dashboard.v0alpha1.LibraryPanelSpec": {
         "type": "object",
-        "required": [
-          "type",
-          "options",
-          "fieldConfig"
-        ],
+        "required": ["type", "options", "fieldConfig"],
         "properties": {
           "datasource": {
             "description": "The default datasource type",
@@ -1895,13 +1817,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResource": {
         "description": "APIResource specifies the name of a resource and whether it is namespaced.",
         "type": "object",
-        "required": [
-          "name",
-          "singularName",
-          "namespaced",
-          "kind",
-          "verbs"
-        ],
+        "required": ["name", "singularName", "namespaced", "kind", "verbs"],
         "properties": {
           "categories": {
             "description": "categories is a list of the grouped resources this resource belongs to (e.g. 'all')",
@@ -1966,10 +1882,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList": {
         "description": "APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.",
         "type": "object",
-        "required": [
-          "groupVersion",
-          "resources"
-        ],
+        "required": ["groupVersion", "resources"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -2208,9 +2121,7 @@
                 }
               ]
             },
-            "x-kubernetes-list-map-keys": [
-              "uid"
-            ],
+            "x-kubernetes-list-map-keys": ["uid"],
             "x-kubernetes-list-type": "map",
             "x-kubernetes-patch-merge-key": "uid",
             "x-kubernetes-patch-strategy": "merge"
@@ -2232,12 +2143,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference": {
         "description": "OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.",
         "type": "object",
-        "required": [
-          "apiVersion",
-          "kind",
-          "name",
-          "uid"
-        ],
+        "required": ["apiVersion", "kind", "name", "uid"],
         "properties": {
           "apiVersion": {
             "description": "API version of the referent.",

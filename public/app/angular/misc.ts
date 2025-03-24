@@ -15,7 +15,9 @@ function tip($compile: any) {
         // here we double-html-encode any special characters in the source string
         // this is needed so that the final html contains the encoded entities as they
         // will be decoded when _t is parsed by angular
-        elem.text().replace(/[\'\"\\{}<>&]/g, (m: string) => '&amp;#' + m.charCodeAt(0) + ';') +
+        elem
+          .text()
+          .replace(/[\'\"\\{}<>&]/g, (m: string) => '&amp;#' + m.charCodeAt(0) + ';') +
         '\'"></i>';
       elem.replaceWith($compile(angular.element(_t))(scope));
     },

@@ -8,10 +8,7 @@
         "name": "foo",
         "time_intervals": [
           {
-            "years": [
-              "2020:2022",
-              "2030"
-            ]
+            "years": ["2020:2022", "2030"]
           }
         ]
       }
@@ -36,9 +33,7 @@
     ],
     "route": {
       "continue": false,
-      "group_by": [
-        "alertname"
-      ],
+      "group_by": ["alertname"],
       "receiver": "am",
       "routes": [
         {

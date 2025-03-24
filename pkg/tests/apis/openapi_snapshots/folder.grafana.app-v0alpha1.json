@@ -7,9 +7,7 @@
   "paths": {
     "/apis/folder.grafana.app/v0alpha1/": {
       "get": {
-        "tags": [
-          "API Discovery"
-        ],
+        "tags": ["API Discovery"],
         "description": "Describe the available kubernetes resources",
         "operationId": "getAPIResources",
         "responses": {
@@ -38,9 +36,7 @@
     },
     "/apis/folder.grafana.app/v0alpha1/namespaces/{namespace}/folders": {
       "get": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "list objects of kind Folder",
         "operationId": "listFolder",
         "parameters": [
@@ -175,9 +171,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "create a Folder",
         "operationId": "createFolder",
         "parameters": [
@@ -299,9 +293,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "delete collection of Folder",
         "operationId": "deletecollectionFolder",
         "parameters": [
@@ -476,9 +468,7 @@
     },
     "/apis/folder.grafana.app/v0alpha1/namespaces/{namespace}/folders/{name}": {
       "get": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "read the specified Folder",
         "operationId": "getFolder",
         "responses": {
@@ -511,9 +501,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "replace the specified Folder",
         "operationId": "replaceFolder",
         "parameters": [
@@ -615,9 +603,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "delete a Folder",
         "operationId": "deleteFolder",
         "parameters": [
@@ -717,9 +703,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "partially update the specified Folder",
         "operationId": "updateFolder",
         "parameters": [
@@ -868,9 +852,7 @@
     },
     "/apis/folder.grafana.app/v0alpha1/namespaces/{namespace}/folders/{name}/access": {
       "get": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "connect GET requests to access of Folder",
         "operationId": "getFolderAccess",
         "responses": {
@@ -917,9 +899,7 @@
     },
     "/apis/folder.grafana.app/v0alpha1/namespaces/{namespace}/folders/{name}/counts": {
       "get": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "connect GET requests to counts of Folder",
         "operationId": "getFolderCounts",
         "responses": {
@@ -966,9 +946,7 @@
     },
     "/apis/folder.grafana.app/v0alpha1/namespaces/{namespace}/folders/{name}/parents": {
       "get": {
-        "tags": [
-          "Folder"
-        ],
+        "tags": ["Folder"],
         "description": "connect GET requests to parents of Folder",
         "operationId": "getFolderParents",
         "responses": {
@@ -1018,9 +996,7 @@
     "schemas": {
       "com.github.grafana.grafana.pkg.apis.folder.v0alpha1.DescendantCounts": {
         "type": "object",
-        "required": [
-          "counts"
-        ],
+        "required": ["counts"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1099,12 +1075,7 @@
       "com.github.grafana.grafana.pkg.apis.folder.v0alpha1.FolderAccessInfo": {
         "description": "Access control information for the current user",
         "type": "object",
-        "required": [
-          "canSave",
-          "canEdit",
-          "canAdmin",
-          "canDelete"
-        ],
+        "required": ["canSave", "canEdit", "canAdmin", "canDelete"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1147,10 +1118,7 @@
       "com.github.grafana.grafana.pkg.apis.folder.v0alpha1.FolderInfo": {
         "description": "FolderInfo briefly describes a folder -- unlike a folder resource, this is a partial record of the folder metadata used for navigating parents and children",
         "type": "object",
-        "required": [
-          "name",
-          "title"
-        ],
+        "required": ["name", "title"],
         "properties": {
           "description": {
             "description": "The folder description",
@@ -1194,9 +1162,7 @@
                 }
               ]
             },
-            "x-kubernetes-list-map-keys": [
-              "uid"
-            ],
+            "x-kubernetes-list-map-keys": ["uid"],
             "x-kubernetes-list-type": "map"
           },
           "kind": {
@@ -1271,11 +1237,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.folder.v0alpha1.ResourceStats": {
         "type": "object",
-        "required": [
-          "group",
-          "resource",
-          "count"
-        ],
+        "required": ["group", "resource", "count"],
         "properties": {
           "count": {
             "type": "integer",
@@ -1294,9 +1256,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.folder.v0alpha1.Spec": {
         "type": "object",
-        "required": [
-          "title"
-        ],
+        "required": ["title"],
         "properties": {
           "description": {
             "description": "Describe the feature toggle",
@@ -1312,13 +1272,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResource": {
         "description": "APIResource specifies the name of a resource and whether it is namespaced.",
         "type": "object",
-        "required": [
-          "name",
-          "singularName",
-          "namespaced",
-          "kind",
-          "verbs"
-        ],
+        "required": ["name", "singularName", "namespaced", "kind", "verbs"],
         "properties": {
           "categories": {
             "description": "categories is a list of the grouped resources this resource belongs to (e.g. 'all')",
@@ -1383,10 +1337,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList": {
         "description": "APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.",
         "type": "object",
-        "required": [
-          "groupVersion",
-          "resources"
-        ],
+        "required": ["groupVersion", "resources"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1625,9 +1576,7 @@
                 }
               ]
             },
-            "x-kubernetes-list-map-keys": [
-              "uid"
-            ],
+            "x-kubernetes-list-map-keys": ["uid"],
             "x-kubernetes-list-type": "map",
             "x-kubernetes-patch-merge-key": "uid",
             "x-kubernetes-patch-strategy": "merge"
@@ -1649,12 +1598,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference": {
         "description": "OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.",
         "type": "object",
-        "required": [
-          "apiVersion",
-          "kind",
-          "name",
-          "uid"
-        ],
+        "required": ["apiVersion", "kind", "name", "uid"],
         "properties": {
           "apiVersion": {
             "description": "API version of the referent.",

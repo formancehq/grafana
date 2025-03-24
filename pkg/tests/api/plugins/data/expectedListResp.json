@@ -83,14 +83,7 @@
       "screenshots": null,
       "version": "",
       "updated": "",
-      "keywords": [
-        "alerts",
-        "alerting",
-        "prometheus",
-        "alertmanager",
-        "mimir",
-        "cortex"
-      ]
+      "keywords": ["alerts", "alerting", "prometheus", "alertmanager", "mimir", "cortex"]
     },
     "dependencies": {
       "grafanaDependency": "",
@@ -211,13 +204,7 @@
       ],
       "version": "11.6.0-pre",
       "updated": "",
-      "keywords": [
-        "azure",
-        "monitor",
-        "Application Insights",
-        "Log Analytics",
-        "App Insights"
-      ]
+      "keywords": ["azure", "monitor", "Application Insights", "Log Analytics", "App Insights"]
     },
     "dependencies": {
       "grafanaDependency": "\u003e=10.3.0",
@@ -367,12 +354,7 @@
       "screenshots": null,
       "version": "",
       "updated": "",
-      "keywords": [
-        "financial",
-        "price",
-        "currency",
-        "k-line"
-      ]
+      "keywords": ["financial", "price", "currency", "k-line"]
     },
     "dependencies": {
       "grafanaDependency": "",
@@ -472,10 +454,7 @@
       "screenshots": null,
       "version": "",
       "updated": "",
-      "keywords": [
-        "aws",
-        "amazon"
-      ]
+      "keywords": ["aws", "amazon"]
     },
     "dependencies": {
       "grafanaDependency": "",
@@ -629,14 +608,7 @@
       "screenshots": null,
       "version": "",
       "updated": "",
-      "keywords": [
-        "elasticsearch",
-        "datasource",
-        "database",
-        "logs",
-        "nosql",
-        "traces"
-      ]
+      "keywords": ["elasticsearch", "datasource", "database", "logs", "nosql", "traces"]
     },
     "dependencies": {
       "grafanaDependency": "",
@@ -936,15 +908,7 @@
       "screenshots": null,
       "version": "11.6.0-pre",
       "updated": "",
-      "keywords": [
-        "grafana",
-        "datasource",
-        "phlare",
-        "flamegraph",
-        "profiling",
-        "continuous profiling",
-        "pyroscope"
-      ]
+      "keywords": ["grafana", "datasource", "phlare", "flamegraph", "profiling", "continuous profiling", "pyroscope"]
     },
     "dependencies": {
       "grafanaDependency": "\u003e=10.3.0-0",
@@ -1148,12 +1112,7 @@
       "screenshots": null,
       "version": "",
       "updated": "",
-      "keywords": [
-        "distribution",
-        "bar chart",
-        "frequency",
-        "proportional"
-      ]
+      "keywords": ["distribution", "bar chart", "frequency", "proportional"]
     },
     "dependencies": {
       "grafanaDependency": "",
@@ -1673,12 +1632,7 @@
       "screenshots": null,
       "version": "11.6.0-pre",
       "updated": "",
-      "keywords": [
-        "grafana",
-        "datasource",
-        "parca",
-        "profiling"
-      ]
+      "keywords": ["grafana", "datasource", "parca", "profiling"]
     },
     "dependencies": {
       "grafanaDependency": "\u003e=10.3.0-0",
@@ -2478,10 +2432,7 @@
       "screenshots": null,
       "version": "",
       "updated": "",
-      "keywords": [
-        "scatter",
-        "plot"
-      ]
+      "keywords": ["scatter", "plot"]
     },
     "dependencies": {
       "grafanaDependency": "",

@@ -7,9 +7,7 @@
   "paths": {
     "/apis/iam.grafana.app/v0alpha1/": {
       "get": {
-        "tags": [
-          "API Discovery"
-        ],
+        "tags": ["API Discovery"],
         "description": "Describe the available kubernetes resources",
         "operationId": "getAPIResources",
         "responses": {
@@ -38,9 +36,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/display": {
       "get": {
-        "tags": [
-          "Display"
-        ],
+        "tags": ["Display"],
         "description": "Show user display information",
         "operationId": "getDisplayMapping",
         "parameters": [
@@ -84,9 +80,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/serviceaccounts": {
       "get": {
-        "tags": [
-          "ServiceAccount"
-        ],
+        "tags": ["ServiceAccount"],
         "description": "list objects of kind ServiceAccount",
         "operationId": "listServiceAccount",
         "responses": {
@@ -242,9 +236,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/serviceaccounts/{name}": {
       "get": {
-        "tags": [
-          "ServiceAccount"
-        ],
+        "tags": ["ServiceAccount"],
         "description": "read the specified ServiceAccount",
         "operationId": "getServiceAccount",
         "responses": {
@@ -310,9 +302,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/serviceaccounts/{name}/tokens": {
       "get": {
-        "tags": [
-          "ServiceAccount"
-        ],
+        "tags": ["ServiceAccount"],
         "description": "connect GET requests to tokens of ServiceAccount",
         "operationId": "getServiceAccountTokens",
         "responses": {
@@ -359,9 +349,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/ssosettings": {
       "get": {
-        "tags": [
-          "SSOSetting"
-        ],
+        "tags": ["SSOSetting"],
         "description": "list objects of kind SSOSetting",
         "operationId": "listSSOSetting",
         "responses": {
@@ -517,9 +505,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/ssosettings/{name}": {
       "get": {
-        "tags": [
-          "SSOSetting"
-        ],
+        "tags": ["SSOSetting"],
         "description": "read the specified SSOSetting",
         "operationId": "getSSOSetting",
         "responses": {
@@ -552,9 +538,7 @@
         }
       },
       "put": {
-        "tags": [
-          "SSOSetting"
-        ],
+        "tags": ["SSOSetting"],
         "description": "replace the specified SSOSetting",
         "operationId": "replaceSSOSetting",
         "parameters": [
@@ -656,9 +640,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "SSOSetting"
-        ],
+        "tags": ["SSOSetting"],
         "description": "delete a SSOSetting",
         "operationId": "deleteSSOSetting",
         "parameters": [
@@ -758,9 +740,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "SSOSetting"
-        ],
+        "tags": ["SSOSetting"],
         "description": "partially update the specified SSOSetting",
         "operationId": "updateSSOSetting",
         "parameters": [
@@ -909,9 +889,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/teambindings": {
       "get": {
-        "tags": [
-          "TeamBinding"
-        ],
+        "tags": ["TeamBinding"],
         "description": "list objects of kind TeamBinding",
         "operationId": "listTeamBinding",
         "responses": {
@@ -1067,9 +1045,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/teambindings/{name}": {
       "get": {
-        "tags": [
-          "TeamBinding"
-        ],
+        "tags": ["TeamBinding"],
         "description": "read the specified TeamBinding",
         "operationId": "getTeamBinding",
         "responses": {
@@ -1135,9 +1111,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/teams": {
       "get": {
-        "tags": [
-          "Team"
-        ],
+        "tags": ["Team"],
         "description": "list objects of kind Team",
         "operationId": "listTeam",
         "responses": {
@@ -1293,9 +1267,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/teams/{name}": {
       "get": {
-        "tags": [
-          "Team"
-        ],
+        "tags": ["Team"],
         "description": "read the specified Team",
         "operationId": "getTeam",
         "responses": {
@@ -1361,9 +1333,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/teams/{name}/members": {
       "get": {
-        "tags": [
-          "Team"
-        ],
+        "tags": ["Team"],
         "description": "connect GET requests to members of Team",
         "operationId": "getTeamMembers",
         "responses": {
@@ -1410,9 +1380,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/users": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "description": "list objects of kind User",
         "operationId": "listUser",
         "responses": {
@@ -1568,9 +1536,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/users/{name}": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "description": "read the specified User",
         "operationId": "getUser",
         "responses": {
@@ -1636,9 +1602,7 @@
     },
     "/apis/iam.grafana.app/v0alpha1/namespaces/{namespace}/users/{name}/teams": {
       "get": {
-        "tags": [
-          "User"
-        ],
+        "tags": ["User"],
         "description": "connect GET requests to teams of User",
         "operationId": "getUserTeams",
         "responses": {
@@ -1693,10 +1657,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.Display": {
         "type": "object",
-        "required": [
-          "identity",
-          "displayName"
-        ],
+        "required": ["identity", "displayName"],
         "properties": {
           "avatarURL": {
             "description": "AvatarURL is the url where we can get the avatar for identity",
@@ -1723,10 +1684,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.DisplayList": {
         "type": "object",
-        "required": [
-          "keys",
-          "display"
-        ],
+        "required": ["keys", "display"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1777,10 +1735,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.IdentityRef": {
         "type": "object",
-        "required": [
-          "type",
-          "name"
-        ],
+        "required": ["type", "name"],
         "properties": {
           "name": {
             "description": "Name is the unique identifier for identity, guaranteed to be a unique value for the type within a namespace.",
@@ -1883,10 +1838,7 @@
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.SSOSettingSpec": {
         "description": "SSOSettingSpec defines model for SSOSettingSpec.",
         "type": "object",
-        "required": [
-          "source",
-          "settings"
-        ],
+        "required": ["source", "settings"],
         "properties": {
           "settings": {
             "$ref": "#/components/schemas/com.github.grafana.grafana.pkg.apimachinery.apis.common.v0alpha1.Unstructured"
@@ -1895,10 +1847,7 @@
             "description": "Possible enum values:\n - `\"db\"`\n - `\"system\"` system is from config file, env or argument",
             "type": "string",
             "default": "",
-            "enum": [
-              "db",
-              "system"
-            ]
+            "enum": ["db", "system"]
           }
         }
       },
@@ -2000,9 +1949,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.ServiceAccountToken": {
         "type": "object",
-        "required": [
-          "created"
-        ],
+        "required": ["created"],
         "properties": {
           "created": {},
           "expires": {},
@@ -2233,10 +2180,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.TeamMember": {
         "type": "object",
-        "required": [
-          "identity",
-          "displayName"
-        ],
+        "required": ["identity", "displayName"],
         "properties": {
           "avatarURL": {
             "description": "AvatarURL is the url where we can get the avatar for identity",
@@ -2267,10 +2211,7 @@
           "permission": {
             "description": "Permission member has in team.\n\nPossible enum values:\n - `\"admin\"`\n - `\"member\"`",
             "type": "string",
-            "enum": [
-              "admin",
-              "member"
-            ]
+            "enum": ["admin", "member"]
           }
         }
       },
@@ -2340,9 +2281,7 @@
       },
       "com.github.grafana.grafana.pkg.apis.iam.v0alpha1.TeamSubject": {
         "type": "object",
-        "required": [
-          "identity"
-        ],
+        "required": ["identity"],
         "properties": {
           "identity": {
             "description": "Identity is a reference to the identity of this subject.",
@@ -2356,10 +2295,7 @@
           "permission": {
             "description": "Permission subject has in team.\n\nPossible enum values:\n - `\"admin\"`\n - `\"member\"`",
             "type": "string",
-            "enum": [
-              "admin",
-              "member"
-            ]
+            "enum": ["admin", "member"]
           }
         }
       },
@@ -2474,10 +2410,7 @@
           "permission": {
             "description": "Possible enum values:\n - `\"admin\"`\n - `\"member\"`",
             "type": "string",
-            "enum": [
-              "admin",
-              "member"
-            ]
+            "enum": ["admin", "member"]
           },
           "teamRef": {
             "default": {},
@@ -2539,13 +2472,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResource": {
         "description": "APIResource specifies the name of a resource and whether it is namespaced.",
         "type": "object",
-        "required": [
-          "name",
-          "singularName",
-          "namespaced",
-          "kind",
-          "verbs"
-        ],
+        "required": ["name", "singularName", "namespaced", "kind", "verbs"],
         "properties": {
           "categories": {
             "description": "categories is a list of the grouped resources this resource belongs to (e.g. 'all')",
@@ -2610,10 +2537,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList": {
         "description": "APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.",
         "type": "object",
-        "required": [
-          "groupVersion",
-          "resources"
-        ],
+        "required": ["groupVersion", "resources"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -2852,9 +2776,7 @@
                 }
               ]
             },
-            "x-kubernetes-list-map-keys": [
-              "uid"
-            ],
+            "x-kubernetes-list-map-keys": ["uid"],
             "x-kubernetes-list-type": "map",
             "x-kubernetes-patch-merge-key": "uid",
             "x-kubernetes-patch-strategy": "merge"
@@ -2876,12 +2798,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference": {
         "description": "OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.",
         "type": "object",
-        "required": [
-          "apiVersion",
-          "kind",
-          "name",
-          "uid"
-        ],
+        "required": ["apiVersion", "kind", "name", "uid"],
         "properties": {
           "apiVersion": {
             "description": "API version of the referent.",

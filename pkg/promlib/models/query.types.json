@@ -40,21 +40,14 @@
                     "type": "array"
                   }
                 },
-                "required": [
-                  "key",
-                  "value",
-                  "operator"
-                ],
+                "required": ["key", "value", "operator"],
                 "type": "object"
               },
               "type": "array"
             },
             "editorMode": {
               "description": "what we should show in the editor\n\n\nPossible enum values:\n - `\"builder\"` \n - `\"code\"` ",
-              "enum": [
-                "builder",
-                "code"
-              ],
+              "enum": ["builder", "code"],
               "type": "string",
               "x-enum-description": {}
             },
@@ -68,11 +61,7 @@
             },
             "format": {
               "description": "The response format\n\n\nPossible enum values:\n - `\"time_series\"` \n - `\"table\"` \n - `\"heatmap\"` ",
-              "enum": [
-                "time_series",
-                "table",
-                "heatmap"
-              ],
+              "enum": ["time_series", "table", "heatmap"],
               "type": "string",
               "x-enum-description": {}
             },
@@ -133,11 +122,7 @@
                           "type": "array"
                         }
                       },
-                      "required": [
-                        "key",
-                        "value",
-                        "operator"
-                      ],
+                      "required": ["key", "value", "operator"],
                       "type": "object"
                     },
                     "type": "array"
@@ -153,22 +138,13 @@
                     "type": "string"
                   }
                 },
-                "required": [
-                  "name",
-                  "title",
-                  "type",
-                  "description",
-                  "category",
-                  "filters"
-                ],
+                "required": ["name", "title", "type", "description", "category", "filters"],
                 "type": "object"
               },
               "type": "array"
             }
           },
-          "required": [
-            "expr"
-          ],
+          "required": ["expr"],
           "type": "object"
         },
         "examples": [

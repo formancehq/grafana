@@ -20,12 +20,7 @@
     "types": "./dist/index.d.mts",
     "access": "public"
   },
-  "files": [
-    "./dist",
-    "./README.md",
-    "./CHANGELOG.md",
-    "./LICENSE_APACHE2"
-  ],
+  "files": ["./dist", "./README.md", "./CHANGELOG.md", "./LICENSE_APACHE2"],
   "scripts": {
     "clean": "rimraf ./dist ./compiled ./package.tgz ./src/icons-gen",
     "generate": "yarn clean && npx @svgr/cli ./svg --silent && mv ./src/icons-gen/index.ts ./src",

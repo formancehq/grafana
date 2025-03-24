@@ -1,8 +1,6 @@
 {
   "type": "object",
-  "required": [
-    "queries"
-  ],
+  "required": ["queries"],
   "properties": {
     "$schema": {
       "description": "helper",
@@ -22,18 +20,12 @@
         "oneOf": [
           {
             "type": "object",
-            "required": [
-              "expression",
-              "type",
-              "refId"
-            ],
+            "required": ["expression", "type", "refId"],
             "properties": {
               "datasource": {
                 "description": "The datasource",
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "apiVersion": {
                     "description": "The apiserver version",
@@ -55,10 +47,7 @@
                 "description": "General math expression",
                 "type": "string",
                 "minLength": 1,
-                "examples": [
-                  "$A + 1",
-                  "$A/$B"
-                ]
+                "examples": ["$A + 1", "$A/$B"]
               },
               "hide": {
                 "description": "true if query is disabled (ie should not be returned to the dashboard)\nNOTE: this does not always imply that the query should not be executed since\nthe results from a hidden query may be used as the input to other queries (SSE etc)",
@@ -83,9 +72,7 @@
               "resultAssertions": {
                 "description": "Optionally define expected query result behavior",
                 "type": "object",
-                "required": [
-                  "typeVersion"
-                ],
+                "required": ["typeVersion"],
                 "properties": {
                   "maxFrames": {
                     "description": "Maximum frame count",
@@ -124,26 +111,19 @@
               "timeRange": {
                 "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
                 "type": "object",
-                "required": [
-                  "from",
-                  "to"
-                ],
+                "required": ["from", "to"],
                 "properties": {
                   "from": {
                     "description": "From is the start time of the query.",
                     "type": "string",
                     "default": "now-6h",
-                    "examples": [
-                      "now-1h"
-                    ]
+                    "examples": ["now-1h"]
                   },
                   "to": {
                     "description": "To is the end time of the query.",
                     "type": "string",
                     "default": "now",
-                    "examples": [
-                      "now"
-                    ]
+                    "examples": ["now"]
                   }
                 },
                 "additionalProperties": false
@@ -158,19 +138,12 @@
           },
           {
             "type": "object",
-            "required": [
-              "expression",
-              "reducer",
-              "type",
-              "refId"
-            ],
+            "required": ["expression", "reducer", "type", "refId"],
             "properties": {
               "datasource": {
                 "description": "The datasource",
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "apiVersion": {
                     "description": "The apiserver version",
@@ -192,9 +165,7 @@
                 "description": "Reference to single query result",
                 "type": "string",
                 "minLength": 1,
-                "examples": [
-                  "$A"
-                ]
+                "examples": ["$A"]
               },
               "hide": {
                 "description": "true if query is disabled (ie should not be returned to the dashboard)\nNOTE: this does not always imply that the query should not be executed since\nthe results from a hidden query may be used as the input to other queries (SSE etc)",
@@ -215,15 +186,7 @@
               "reducer": {
                 "description": "The reducer\n\n\nPossible enum values:\n - `\"sum\"` \n - `\"mean\"` \n - `\"min\"` \n - `\"max\"` \n - `\"count\"` \n - `\"last\"` \n - `\"median\"` ",
                 "type": "string",
-                "enum": [
-                  "sum",
-                  "mean",
-                  "min",
-                  "max",
-                  "count",
-                  "last",
-                  "median"
-                ],
+                "enum": ["sum", "mean", "min", "max", "count", "last", "median"],
                 "x-enum-description": {}
               },
               "refId": {
@@ -233,9 +196,7 @@
               "resultAssertions": {
                 "description": "Optionally define expected query result behavior",
                 "type": "object",
-                "required": [
-                  "typeVersion"
-                ],
+                "required": ["typeVersion"],
                 "properties": {
                   "maxFrames": {
                     "description": "Maximum frame count",
@@ -274,17 +235,12 @@
               "settings": {
                 "description": "Reducer Options",
                 "type": "object",
-                "required": [
-                  "mode"
-                ],
+                "required": ["mode"],
                 "properties": {
                   "mode": {
                     "description": "Non-number reduce behavior\n\n\nPossible enum values:\n - `\"dropNN\"` Drop non-numbers\n - `\"replaceNN\"` Replace non-numbers",
                     "type": "string",
-                    "enum": [
-                      "dropNN",
-                      "replaceNN"
-                    ],
+                    "enum": ["dropNN", "replaceNN"],
                     "x-enum-description": {
                       "dropNN": "Drop non-numbers",
                       "replaceNN": "Replace non-numbers"
@@ -300,26 +256,19 @@
               "timeRange": {
                 "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
                 "type": "object",
-                "required": [
-                  "from",
-                  "to"
-                ],
+                "required": ["from", "to"],
                 "properties": {
                   "from": {
                     "description": "From is the start time of the query.",
                     "type": "string",
                     "default": "now-6h",
-                    "examples": [
-                      "now-1h"
-                    ]
+                    "examples": ["now-1h"]
                   },
                   "to": {
                     "description": "To is the end time of the query.",
                     "type": "string",
                     "default": "now",
-                    "examples": [
-                      "now"
-                    ]
+                    "examples": ["now"]
                   }
                 },
                 "additionalProperties": false
@@ -335,21 +284,12 @@
           {
             "description": "QueryType = resample",
             "type": "object",
-            "required": [
-              "expression",
-              "window",
-              "downsampler",
-              "upsampler",
-              "type",
-              "refId"
-            ],
+            "required": ["expression", "window", "downsampler", "upsampler", "type", "refId"],
             "properties": {
               "datasource": {
                 "description": "The datasource",
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "apiVersion": {
                     "description": "The apiserver version",
@@ -370,25 +310,14 @@
               "downsampler": {
                 "description": "The downsample function\n\n\nPossible enum values:\n - `\"sum\"` \n - `\"mean\"` \n - `\"min\"` \n - `\"max\"` \n - `\"count\"` \n - `\"last\"` \n - `\"median\"` ",
                 "type": "string",
-                "enum": [
-                  "sum",
-                  "mean",
-                  "min",
-                  "max",
-                  "count",
-                  "last",
-                  "median"
-                ],
+                "enum": ["sum", "mean", "min", "max", "count", "last", "median"],
                 "x-enum-description": {}
               },
               "expression": {
                 "description": "The math expression",
                 "type": "string",
                 "minLength": 1,
-                "examples": [
-                  "$A + 1",
-                  "$A"
-                ]
+                "examples": ["$A + 1", "$A"]
               },
               "hide": {
                 "description": "true if query is disabled (ie should not be returned to the dashboard)\nNOTE: this does not always imply that the query should not be executed since\nthe results from a hidden query may be used as the input to other queries (SSE etc)",
@@ -413,9 +342,7 @@
               "resultAssertions": {
                 "description": "Optionally define expected query result behavior",
                 "type": "object",
-                "required": [
-                  "typeVersion"
-                ],
+                "required": ["typeVersion"],
                 "properties": {
                   "maxFrames": {
                     "description": "Maximum frame count",
@@ -454,26 +381,19 @@
               "timeRange": {
                 "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
                 "type": "object",
-                "required": [
-                  "from",
-                  "to"
-                ],
+                "required": ["from", "to"],
                 "properties": {
                   "from": {
                     "description": "From is the start time of the query.",
                     "type": "string",
                     "default": "now-6h",
-                    "examples": [
-                      "now-1h"
-                    ]
+                    "examples": ["now-1h"]
                   },
                   "to": {
                     "description": "To is the end time of the query.",
                     "type": "string",
                     "default": "now",
-                    "examples": [
-                      "now"
-                    ]
+                    "examples": ["now"]
                   }
                 },
                 "additionalProperties": false
@@ -485,11 +405,7 @@
               "upsampler": {
                 "description": "The upsample function\n\n\nPossible enum values:\n - `\"pad\"` Use the last seen value\n - `\"backfilling\"` backfill\n - `\"fillna\"` Do not fill values (nill)",
                 "type": "string",
-                "enum": [
-                  "pad",
-                  "backfilling",
-                  "fillna"
-                ],
+                "enum": ["pad", "backfilling", "fillna"],
                 "x-enum-description": {
                   "backfilling": "backfill",
                   "fillna": "Do not fill values (nill)",
@@ -500,10 +416,7 @@
                 "description": "The time duration",
                 "type": "string",
                 "minLength": 1,
-                "examples": [
-                  "1d",
-                  "10m"
-                ]
+                "examples": ["1d", "10m"]
               }
             },
             "additionalProperties": false,
@@ -511,30 +424,18 @@
           },
           {
             "type": "object",
-            "required": [
-              "conditions",
-              "type",
-              "refId"
-            ],
+            "required": ["conditions", "type", "refId"],
             "properties": {
               "conditions": {
                 "type": "array",
                 "items": {
                   "description": "ConditionJSON is the JSON model for a single condition in ConditionsCmd.",
                   "type": "object",
-                  "required": [
-                    "evaluator",
-                    "operator",
-                    "query",
-                    "reducer"
-                  ],
+                  "required": ["evaluator", "operator", "query", "reducer"],
                   "properties": {
                     "evaluator": {
                       "type": "object",
-                      "required": [
-                        "params",
-                        "type"
-                      ],
+                      "required": ["params", "type"],
                       "properties": {
                         "params": {
                           "type": "array",
@@ -551,17 +452,11 @@
                     },
                     "operator": {
                       "type": "object",
-                      "required": [
-                        "type"
-                      ],
+                      "required": ["type"],
                       "properties": {
                         "type": {
                           "type": "string",
-                          "enum": [
-                            "and",
-                            "or",
-                            "logic-or"
-                          ],
+                          "enum": ["and", "or", "logic-or"],
                           "x-enum-description": {}
                         }
                       },
@@ -569,9 +464,7 @@
                     },
                     "query": {
                       "type": "object",
-                      "required": [
-                        "params"
-                      ],
+                      "required": ["params"],
                       "properties": {
                         "params": {
                           "type": "array",
@@ -584,9 +477,7 @@
                     },
                     "reducer": {
                       "type": "object",
-                      "required": [
-                        "type"
-                      ],
+                      "required": ["type"],
                       "properties": {
                         "type": {
                           "type": "string"
@@ -601,9 +492,7 @@
               "datasource": {
                 "description": "The datasource",
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "apiVersion": {
                     "description": "The apiserver version",
@@ -644,9 +533,7 @@
               "resultAssertions": {
                 "description": "Optionally define expected query result behavior",
                 "type": "object",
-                "required": [
-                  "typeVersion"
-                ],
+                "required": ["typeVersion"],
                 "properties": {
                   "maxFrames": {
                     "description": "Maximum frame count",
@@ -685,26 +572,19 @@
               "timeRange": {
                 "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
                 "type": "object",
-                "required": [
-                  "from",
-                  "to"
-                ],
+                "required": ["from", "to"],
                 "properties": {
                   "from": {
                     "description": "From is the start time of the query.",
                     "type": "string",
                     "default": "now-6h",
-                    "examples": [
-                      "now-1h"
-                    ]
+                    "examples": ["now-1h"]
                   },
                   "to": {
                     "description": "To is the end time of the query.",
                     "type": "string",
                     "default": "now",
-                    "examples": [
-                      "now"
-                    ]
+                    "examples": ["now"]
                   }
                 },
                 "additionalProperties": false
@@ -719,28 +599,18 @@
           },
           {
             "type": "object",
-            "required": [
-              "expression",
-              "conditions",
-              "type",
-              "refId"
-            ],
+            "required": ["expression", "conditions", "type", "refId"],
             "properties": {
               "conditions": {
                 "description": "Threshold Conditions",
                 "type": "array",
                 "items": {
                   "type": "object",
-                  "required": [
-                    "evaluator"
-                  ],
+                  "required": ["evaluator"],
                   "properties": {
                     "evaluator": {
                       "type": "object",
-                      "required": [
-                        "params",
-                        "type"
-                      ],
+                      "required": ["params", "type"],
                       "properties": {
                         "params": {
                           "type": "array",
@@ -775,10 +645,7 @@
                     },
                     "unloadEvaluator": {
                       "type": "object",
-                      "required": [
-                        "params",
-                        "type"
-                      ],
+                      "required": ["params", "type"],
                       "properties": {
                         "params": {
                           "type": "array",
@@ -813,9 +680,7 @@
               "datasource": {
                 "description": "The datasource",
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "apiVersion": {
                     "description": "The apiserver version",
@@ -837,9 +702,7 @@
                 "description": "Reference to single query result",
                 "type": "string",
                 "minLength": 1,
-                "examples": [
-                  "$A"
-                ]
+                "examples": ["$A"]
               },
               "hide": {
                 "description": "true if query is disabled (ie should not be returned to the dashboard)\nNOTE: this does not always imply that the query should not be executed since\nthe results from a hidden query may be used as the input to other queries (SSE etc)",
@@ -864,9 +727,7 @@
               "resultAssertions": {
                 "description": "Optionally define expected query result behavior",
                 "type": "object",
-                "required": [
-                  "typeVersion"
-                ],
+                "required": ["typeVersion"],
                 "properties": {
                   "maxFrames": {
                     "description": "Maximum frame count",
@@ -905,26 +766,19 @@
               "timeRange": {
                 "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
                 "type": "object",
-                "required": [
-                  "from",
-                  "to"
-                ],
+                "required": ["from", "to"],
                 "properties": {
                   "from": {
                     "description": "From is the start time of the query.",
                     "type": "string",
                     "default": "now-6h",
-                    "examples": [
-                      "now-1h"
-                    ]
+                    "examples": ["now-1h"]
                   },
                   "to": {
                     "description": "To is the end time of the query.",
                     "type": "string",
                     "default": "now",
-                    "examples": [
-                      "now"
-                    ]
+                    "examples": ["now"]
                   }
                 },
                 "additionalProperties": false
@@ -940,18 +794,12 @@
           {
             "description": "SQLQuery requires the sqlExpression feature flag",
             "type": "object",
-            "required": [
-              "expression",
-              "type",
-              "refId"
-            ],
+            "required": ["expression", "type", "refId"],
             "properties": {
               "datasource": {
                 "description": "The datasource",
                 "type": "object",
-                "required": [
-                  "type"
-                ],
+                "required": ["type"],
                 "properties": {
                   "apiVersion": {
                     "description": "The apiserver version",
@@ -972,9 +820,7 @@
               "expression": {
                 "type": "string",
                 "minLength": 1,
-                "examples": [
-                  "SELECT * FROM A LIMIT 1"
-                ]
+                "examples": ["SELECT * FROM A LIMIT 1"]
               },
               "hide": {
                 "description": "true if query is disabled (ie should not be returned to the dashboard)\nNOTE: this does not always imply that the query should not be executed since\nthe results from a hidden query may be used as the input to other queries (SSE etc)",
@@ -999,9 +845,7 @@
               "resultAssertions": {
                 "description": "Optionally define expected query result behavior",
                 "type": "object",
-                "required": [
-                  "typeVersion"
-                ],
+                "required": ["typeVersion"],
                 "properties": {
                   "maxFrames": {
                     "description": "Maximum frame count",
@@ -1040,26 +884,19 @@
               "timeRange": {
                 "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
                 "type": "object",
-                "required": [
-                  "from",
-                  "to"
-                ],
+                "required": ["from", "to"],
                 "properties": {
                   "from": {
                     "description": "From is the start time of the query.",
                     "type": "string",
                     "default": "now-6h",
-                    "examples": [
-                      "now-1h"
-                    ]
+                    "examples": ["now-1h"]
                   },
                   "to": {
                     "description": "To is the end time of the query.",
                     "type": "string",
                     "default": "now",
-                    "examples": [
-                      "now"
-                    ]
+                    "examples": ["now"]
                   }
                 },
                 "additionalProperties": false

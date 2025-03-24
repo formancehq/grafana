@@ -78,7 +78,7 @@ export class SQLSearcher implements GrafanaSearcher {
     const page =
       query.from !== undefined
         ? // prettier-ignore
-          (query.from / limit) + 1 // pages are 1-indexed, so need to +1 to get there
+          query.from / limit + 1 // pages are 1-indexed, so need to +1 to get there
         : undefined;
 
     const q = await this.composeQuery(

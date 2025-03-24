@@ -4,12 +4,7 @@
   "name": "@grafana/ui",
   "version": "12.0.0-pre",
   "description": "Grafana Components Library",
-  "keywords": [
-    "grafana",
-    "react",
-    "react-component",
-    "typescript"
-  ],
+  "keywords": ["grafana", "react", "react-component", "typescript"],
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -40,13 +35,7 @@
     "types": "./dist/cjs/index.d.cts",
     "access": "public"
   },
-  "files": [
-    "./dist",
-    "!./dist/storybook",
-    "./README.md",
-    "./CHANGELOG.md",
-    "./LICENSE_APACHE2"
-  ],
+  "files": ["./dist", "!./dist/storybook", "./README.md", "./CHANGELOG.md", "./LICENSE_APACHE2"],
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json && rollup -c rollup.config.ts --configPlugin esbuild",
     "bundle": "rollup -c rollup.config.ts --configPlugin esbuild",
@@ -57,10 +46,7 @@
     "prepack": "cp package.json package.json.bak && ALIAS_PACKAGE_NAME=unstable node ../../scripts/prepare-npm-package.js",
     "postpack": "mv package.json.bak package.json && rimraf ./unstable"
   },
-  "browserslist": [
-    "defaults",
-    "not IE 11"
-  ],
+  "browserslist": ["defaults", "not IE 11"],
   "dependencies": {
     "@emotion/css": "11.13.5",
     "@emotion/react": "11.14.0",

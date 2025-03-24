@@ -300,22 +300,21 @@ describe('timeRegions', () => {
     /* eslint-disable */
     // prettier-ignore
     let tests: TestDef[] = [
-      ['from every day (time before) to every day (time after)',  _, '10:27', _, '14:27', '27 10 * * *', '4h'],
+      ['from every day (time before) to every day (time after)', _, '10:27', _, '14:27', '27 10 * * *', '4h'],
       ['from every day (time after)  to every day (time before)', _, '22:27', _, '02:27', '27 22 * * *', '4h'],
-      ['from every day (time)        to every day (no time)',     _, '10:27', _,       _, '27 10 * * *',   ''],
-      ['from fri (no time)',                                      5,       _, _,       _,   '0 0 * * 5', '1d'],
-      ['from fri (no time)           to tues (no time)',          5,       _, 2,       _,   '0 0 * * 5', '5d'],
-      ['from fri (no time)           to tues (time)',             5,       _, 2, '02:27',   '0 0 * * 5', '4d 2h 27m'],
-      ['from fri (time)              to tues (no time)',          5, '10:27', 2,       _, '27 10 * * 5', '4d'],
-      ['from fri (time)              to tues (time)',             5, '10:27', 2, '14:27', '27 10 * * 5', '4d 4h'],
+      ['from every day (time)        to every day (no time)', _, '10:27', _, _, '27 10 * * *', ''],
+      ['from fri (no time)', 5, _, _, _, '0 0 * * 5', '1d'],
+      ['from fri (no time)           to tues (no time)', 5, _, 2, _, '0 0 * * 5', '5d'],
+      ['from fri (no time)           to tues (time)', 5, _, 2, '02:27', '0 0 * * 5', '4d 2h 27m'],
+      ['from fri (time)              to tues (no time)', 5, '10:27', 2, _, '27 10 * * 5', '4d'],
+      ['from fri (time)              to tues (time)', 5, '10:27', 2, '14:27', '27 10 * * 5', '4d 4h'],
 
       // same day
-      ['from fri (time before)       to fri (time after)',        5, '10:27', 5, '14:27', '27 10 * * 5', '4h'],
+      ['from fri (time before)       to fri (time after)', 5, '10:27', 5, '14:27', '27 10 * * 5', '4h'],
       // "toDay" should assume Fri
-      ['from fri (time before)       to every day (time after)',  5, '10:27', _, '14:27', '27 10 * * 5', '4h'],
+      ['from fri (time before)       to every day (time after)', 5, '10:27', _, '14:27', '27 10 * * 5', '4h'],
       // wrap-around case
-      ['from fri (time after)        to fri (time before)',       5, '14:27', 5, '10:27', '27 14 * * 5', '6d 20h'],
-
+      ['from fri (time after)        to fri (time before)', 5, '14:27', 5, '10:27', '27 14 * * 5', '6d 20h'],
     ];
     /* eslint-enable */
 
@@ -334,9 +333,9 @@ describe('timeRegions', () => {
     /* eslint-disable */
     // prettier-ignore
     let tests: TestDef[] = [
-      ['from every day (time)',                            _, '10:03', _, _,       '3 10 * * *', ''],
+      ['from every day (time)', _, '10:03', _, _, '3 10 * * *', ''],
       ['from every day (time)        to every day (time)', _, '10:03', _, '10:03', '3 10 * * *', ''],
-      ['from tues      (time)',                            2, '10:03', _,       _, '3 10 * * 2', ''],
+      ['from tues      (time)', 2, '10:03', _, _, '3 10 * * 2', ''],
       ['from tues      (time)        to tues      (time)', 2, '10:03', _, '10:03', '3 10 * * 2', ''],
     ];
     /* eslint-enable */

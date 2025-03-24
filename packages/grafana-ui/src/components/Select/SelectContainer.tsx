@@ -11,8 +11,12 @@ import { getInputStyles } from '../Input/Input';
 import { CustomComponentProps } from './types';
 
 // prettier-ignore
-export type SelectContainerProps<Option, isMulti extends boolean, Group extends GroupBase<Option>> =
-  BaseContainerProps<Option, isMulti, Group> & CustomComponentProps<Option, isMulti, Group>;
+export type SelectContainerProps<Option, isMulti extends boolean, Group extends GroupBase<Option>> = BaseContainerProps<
+  Option,
+  isMulti,
+  Group
+> &
+  CustomComponentProps<Option, isMulti, Group>;
 
 export const SelectContainer = <Option, isMulti extends boolean, Group extends GroupBase<Option>>(
   props: SelectContainerProps<Option, isMulti, Group>

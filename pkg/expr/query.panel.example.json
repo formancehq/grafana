@@ -53,18 +53,14 @@
       "conditions": [
         {
           "evaluator": {
-            "params": [
-              5
-            ],
+            "params": [5],
             "type": "gt"
           },
           "operator": {
             "type": "and"
           },
           "query": {
-            "params": [
-              "A"
-            ]
+            "params": ["A"]
           },
           "reducer": {
             "type": "max"
@@ -83,9 +79,7 @@
       "conditions": [
         {
           "evaluator": {
-            "params": [
-              5
-            ],
+            "params": [5],
             "type": "gt"
           }
         }
@@ -102,22 +96,12 @@
       "conditions": [
         {
           "evaluator": {
-            "params": [
-              100
-            ],
+            "params": [100],
             "type": "gt"
           },
           "loadedDimensions": {
             "data": {
-              "values": [
-                [
-                  18446744073709552000,
-                  2,
-                  3,
-                  4,
-                  5
-                ]
-              ]
+              "values": [[18446744073709552000, 2, 3, 4, 5]]
             },
             "schema": {
               "fields": [
@@ -131,18 +115,13 @@
               ],
               "meta": {
                 "type": "fingerprints",
-                "typeVersion": [
-                  1,
-                  0
-                ]
+                "typeVersion": [1, 0]
               },
               "name": "test"
             }
           },
           "unloadEvaluator": {
-            "params": [
-              31
-            ],
+            "params": [31],
             "type": "lt"
           }
         }

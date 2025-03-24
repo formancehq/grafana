@@ -1,8 +1,6 @@
 {
   "type": "object",
-  "required": [
-    "queries"
-  ],
+  "required": ["queries"],
   "properties": {
     "$schema": {
       "description": "helper",
@@ -20,9 +18,7 @@
       "items": {
         "description": "PrometheusQueryProperties defines the specific properties used for prometheus",
         "type": "object",
-        "required": [
-          "expr"
-        ],
+        "required": ["expr"],
         "properties": {
           "adhocFilters": {
             "description": "Additional Ad-hoc filters that take precedence over Scope on conflict.",
@@ -30,11 +26,7 @@
             "items": {
               "description": "ScopeFilter is a hand copy of the ScopeFilter struct from pkg/apis/scope/v0alpha1/types.go to avoid import (temp fix)",
               "type": "object",
-              "required": [
-                "key",
-                "value",
-                "operator"
-              ],
+              "required": ["key", "value", "operator"],
               "properties": {
                 "key": {
                   "type": "string"
@@ -59,9 +51,7 @@
           "datasource": {
             "description": "The datasource",
             "type": "object",
-            "required": [
-              "type"
-            ],
+            "required": ["type"],
             "properties": {
               "apiVersion": {
                 "description": "The apiserver version",
@@ -82,10 +72,7 @@
           "editorMode": {
             "description": "what we should show in the editor\n\n\nPossible enum values:\n - `\"builder\"` \n - `\"code\"` ",
             "type": "string",
-            "enum": [
-              "builder",
-              "code"
-            ],
+            "enum": ["builder", "code"],
             "x-enum-description": {}
           },
           "exemplar": {
@@ -99,11 +86,7 @@
           "format": {
             "description": "The response format\n\n\nPossible enum values:\n - `\"time_series\"` \n - `\"table\"` \n - `\"heatmap\"` ",
             "type": "string",
-            "enum": [
-              "time_series",
-              "table",
-              "heatmap"
-            ],
+            "enum": ["time_series", "table", "heatmap"],
             "x-enum-description": {}
           },
           "groupByKeys": {
@@ -152,9 +135,7 @@
           "resultAssertions": {
             "description": "Optionally define expected query result behavior",
             "type": "object",
-            "required": [
-              "typeVersion"
-            ],
+            "required": ["typeVersion"],
             "properties": {
               "maxFrames": {
                 "description": "Maximum frame count",
@@ -196,14 +177,7 @@
             "items": {
               "description": "ScopeSpec is a hand copy of the ScopeSpec struct from pkg/apis/scope/v0alpha1/types.go to avoid import (temp fix).",
               "type": "object",
-              "required": [
-                "name",
-                "title",
-                "type",
-                "description",
-                "category",
-                "filters"
-              ],
+              "required": ["name", "title", "type", "description", "category", "filters"],
               "properties": {
                 "category": {
                   "type": "string"
@@ -216,11 +190,7 @@
                   "items": {
                     "description": "ScopeFilter is a hand copy of the ScopeFilter struct from pkg/apis/scope/v0alpha1/types.go to avoid import (temp fix)",
                     "type": "object",
-                    "required": [
-                      "key",
-                      "value",
-                      "operator"
-                    ],
+                    "required": ["key", "value", "operator"],
                     "properties": {
                       "key": {
                         "type": "string"
@@ -259,26 +229,19 @@
           "timeRange": {
             "description": "TimeRange represents the query range\nNOTE: unlike generic /ds/query, we can now send explicit time values in each query\nNOTE: the values for timeRange are not saved in a dashboard, they are constructed on the fly",
             "type": "object",
-            "required": [
-              "from",
-              "to"
-            ],
+            "required": ["from", "to"],
             "properties": {
               "from": {
                 "description": "From is the start time of the query.",
                 "type": "string",
                 "default": "now-6h",
-                "examples": [
-                  "now-1h"
-                ]
+                "examples": ["now-1h"]
               },
               "to": {
                 "description": "To is the end time of the query.",
                 "type": "string",
                 "default": "now",
-                "examples": [
-                  "now"
-                ]
+                "examples": ["now"]
               }
             },
             "additionalProperties": false

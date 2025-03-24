@@ -4,9 +4,7 @@
   "name": "@grafana/data",
   "version": "12.0.0-pre",
   "description": "Grafana Data Library",
-  "keywords": [
-    "typescript"
-  ],
+  "keywords": ["typescript"],
   "sideEffects": false,
   "repository": {
     "type": "git",
@@ -21,12 +19,7 @@
     "types": "./dist/cjs/index.d.cts",
     "access": "public"
   },
-  "files": [
-    "dist",
-    "./README.md",
-    "./CHANGELOG.md",
-    "LICENSE_APACHE2"
-  ],
+  "files": ["dist", "./README.md", "./CHANGELOG.md", "LICENSE_APACHE2"],
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json && rollup -c rollup.config.ts --configPlugin esbuild",
     "clean": "rimraf ./dist ./compiled ./unstable ./package.tgz",

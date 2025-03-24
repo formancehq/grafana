@@ -24,17 +24,12 @@
           "properties": {
             "expression": {
               "description": "General math expression",
-              "examples": [
-                "$A + 1",
-                "$A/$B"
-              ],
+              "examples": ["$A + 1", "$A/$B"],
               "minLength": 1,
               "type": "string"
             }
           },
-          "required": [
-            "expression"
-          ],
+          "required": ["expression"],
           "type": "object"
         },
         "examples": [
@@ -72,23 +67,13 @@
           "properties": {
             "expression": {
               "description": "Reference to single query result",
-              "examples": [
-                "$A"
-              ],
+              "examples": ["$A"],
               "minLength": 1,
               "type": "string"
             },
             "reducer": {
               "description": "The reducer\n\n\nPossible enum values:\n - `\"sum\"` \n - `\"mean\"` \n - `\"min\"` \n - `\"max\"` \n - `\"count\"` \n - `\"last\"` \n - `\"median\"` ",
-              "enum": [
-                "sum",
-                "mean",
-                "min",
-                "max",
-                "count",
-                "last",
-                "median"
-              ],
+              "enum": ["sum", "mean", "min", "max", "count", "last", "median"],
               "type": "string",
               "x-enum-description": {}
             },
@@ -98,10 +83,7 @@
               "properties": {
                 "mode": {
                   "description": "Non-number reduce behavior\n\n\nPossible enum values:\n - `\"dropNN\"` Drop non-numbers\n - `\"replaceNN\"` Replace non-numbers",
-                  "enum": [
-                    "dropNN",
-                    "replaceNN"
-                  ],
+                  "enum": ["dropNN", "replaceNN"],
                   "type": "string",
                   "x-enum-description": {
                     "dropNN": "Drop non-numbers",
@@ -113,16 +95,11 @@
                   "type": "number"
                 }
               },
-              "required": [
-                "mode"
-              ],
+              "required": ["mode"],
               "type": "object"
             }
           },
-          "required": [
-            "expression",
-            "reducer"
-          ],
+          "required": ["expression", "reducer"],
           "type": "object"
         },
         "examples": [
@@ -159,34 +136,19 @@
           "properties": {
             "downsampler": {
               "description": "The downsample function\n\n\nPossible enum values:\n - `\"sum\"` \n - `\"mean\"` \n - `\"min\"` \n - `\"max\"` \n - `\"count\"` \n - `\"last\"` \n - `\"median\"` ",
-              "enum": [
-                "sum",
-                "mean",
-                "min",
-                "max",
-                "count",
-                "last",
-                "median"
-              ],
+              "enum": ["sum", "mean", "min", "max", "count", "last", "median"],
               "type": "string",
               "x-enum-description": {}
             },
             "expression": {
               "description": "The math expression",
-              "examples": [
-                "$A + 1",
-                "$A"
-              ],
+              "examples": ["$A + 1", "$A"],
               "minLength": 1,
               "type": "string"
             },
             "upsampler": {
               "description": "The upsample function\n\n\nPossible enum values:\n - `\"pad\"` Use the last seen value\n - `\"backfilling\"` backfill\n - `\"fillna\"` Do not fill values (nill)",
-              "enum": [
-                "pad",
-                "backfilling",
-                "fillna"
-              ],
+              "enum": ["pad", "backfilling", "fillna"],
               "type": "string",
               "x-enum-description": {
                 "backfilling": "backfill",
@@ -196,20 +158,12 @@
             },
             "window": {
               "description": "The time duration",
-              "examples": [
-                "1d",
-                "10m"
-              ],
+              "examples": ["1d", "10m"],
               "minLength": 1,
               "type": "string"
             }
           },
-          "required": [
-            "expression",
-            "window",
-            "downsampler",
-            "upsampler"
-          ],
+          "required": ["expression", "window", "downsampler", "upsampler"],
           "type": "object"
         },
         "examples": [
@@ -261,28 +215,19 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "params",
-                      "type"
-                    ],
+                    "required": ["params", "type"],
                     "type": "object"
                   },
                   "operator": {
                     "additionalProperties": false,
                     "properties": {
                       "type": {
-                        "enum": [
-                          "and",
-                          "or",
-                          "logic-or"
-                        ],
+                        "enum": ["and", "or", "logic-or"],
                         "type": "string",
                         "x-enum-description": {}
                       }
                     },
-                    "required": [
-                      "type"
-                    ],
+                    "required": ["type"],
                     "type": "object"
                   },
                   "query": {
@@ -295,9 +240,7 @@
                         "type": "array"
                       }
                     },
-                    "required": [
-                      "params"
-                    ],
+                    "required": ["params"],
                     "type": "object"
                   },
                   "reducer": {
@@ -307,26 +250,17 @@
                         "type": "string"
                       }
                     },
-                    "required": [
-                      "type"
-                    ],
+                    "required": ["type"],
                     "type": "object"
                   }
                 },
-                "required": [
-                  "evaluator",
-                  "operator",
-                  "query",
-                  "reducer"
-                ],
+                "required": ["evaluator", "operator", "query", "reducer"],
                 "type": "object"
               },
               "type": "array"
             }
           },
-          "required": [
-            "conditions"
-          ],
+          "required": ["conditions"],
           "type": "object"
         },
         "examples": [
@@ -336,18 +270,14 @@
               "conditions": [
                 {
                   "evaluator": {
-                    "params": [
-                      5
-                    ],
+                    "params": [5],
                     "type": "gt"
                   },
                   "operator": {
                     "type": "and"
                   },
                   "query": {
-                    "params": [
-                      "A"
-                    ]
+                    "params": ["A"]
                   },
                   "reducer": {
                     "type": "max"
@@ -408,10 +338,7 @@
                         "x-enum-description": {}
                       }
                     },
-                    "required": [
-                      "params",
-                      "type"
-                    ],
+                    "required": ["params", "type"],
                     "type": "object"
                   },
                   "loadedDimensions": {
@@ -446,33 +373,23 @@
                         "x-enum-description": {}
                       }
                     },
-                    "required": [
-                      "params",
-                      "type"
-                    ],
+                    "required": ["params", "type"],
                     "type": "object"
                   }
                 },
-                "required": [
-                  "evaluator"
-                ],
+                "required": ["evaluator"],
                 "type": "object"
               },
               "type": "array"
             },
             "expression": {
               "description": "Reference to single query result",
-              "examples": [
-                "$A"
-              ],
+              "examples": ["$A"],
               "minLength": 1,
               "type": "string"
             }
           },
-          "required": [
-            "expression",
-            "conditions"
-          ],
+          "required": ["expression", "conditions"],
           "type": "object"
         },
         "examples": [
@@ -482,9 +399,7 @@
               "conditions": [
                 {
                   "evaluator": {
-                    "params": [
-                      5
-                    ],
+                    "params": [5],
                     "type": "gt"
                   }
                 }
@@ -498,22 +413,12 @@
               "conditions": [
                 {
                   "evaluator": {
-                    "params": [
-                      100
-                    ],
+                    "params": [100],
                     "type": "gt"
                   },
                   "loadedDimensions": {
                     "data": {
-                      "values": [
-                        [
-                          18446744073709552000,
-                          2,
-                          3,
-                          4,
-                          5
-                        ]
-                      ]
+                      "values": [[18446744073709552000, 2, 3, 4, 5]]
                     },
                     "schema": {
                       "fields": [
@@ -527,18 +432,13 @@
                       ],
                       "meta": {
                         "type": "fingerprints",
-                        "typeVersion": [
-                          1,
-                          0
-                        ]
+                        "typeVersion": [1, 0]
                       },
                       "name": "test"
                     }
                   },
                   "unloadEvaluator": {
-                    "params": [
-                      31
-                    ],
+                    "params": [31],
                     "type": "lt"
                   }
                 }
@@ -568,16 +468,12 @@
           "description": "SQLQuery requires the sqlExpression feature flag",
           "properties": {
             "expression": {
-              "examples": [
-                "SELECT * FROM A LIMIT 1"
-              ],
+              "examples": ["SELECT * FROM A LIMIT 1"],
               "minLength": 1,
               "type": "string"
             }
           },
-          "required": [
-            "expression"
-          ],
+          "required": ["expression"],
           "type": "object"
         },
         "examples": [

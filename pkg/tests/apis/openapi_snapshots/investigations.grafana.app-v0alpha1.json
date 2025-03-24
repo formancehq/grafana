@@ -6,9 +6,7 @@
   "paths": {
     "/apis/investigations.grafana.app/v0alpha1/": {
       "get": {
-        "tags": [
-          "API Discovery"
-        ],
+        "tags": ["API Discovery"],
         "description": "Describe the available kubernetes resources",
         "operationId": "getAPIResources",
         "responses": {
@@ -37,9 +35,7 @@
     },
     "/apis/investigations.grafana.app/v0alpha1/namespaces/{namespace}/investigationindexes": {
       "get": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "list or watch objects of kind InvestigationIndex",
         "operationId": "listInvestigationIndex",
         "parameters": [
@@ -174,9 +170,7 @@
         }
       },
       "post": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "create an InvestigationIndex",
         "operationId": "createInvestigationIndex",
         "parameters": [
@@ -298,9 +292,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "delete collection of InvestigationIndex",
         "operationId": "deletecollectionInvestigationIndex",
         "parameters": [
@@ -475,9 +467,7 @@
     },
     "/apis/investigations.grafana.app/v0alpha1/namespaces/{namespace}/investigationindexes/{name}": {
       "get": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "read the specified InvestigationIndex",
         "operationId": "getInvestigationIndex",
         "responses": {
@@ -510,9 +500,7 @@
         }
       },
       "put": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "replace the specified InvestigationIndex",
         "operationId": "replaceInvestigationIndex",
         "parameters": [
@@ -614,9 +602,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "delete an InvestigationIndex",
         "operationId": "deleteInvestigationIndex",
         "parameters": [
@@ -716,9 +702,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "InvestigationIndex"
-        ],
+        "tags": ["InvestigationIndex"],
         "description": "partially update the specified InvestigationIndex",
         "operationId": "updateInvestigationIndex",
         "parameters": [
@@ -867,9 +851,7 @@
     },
     "/apis/investigations.grafana.app/v0alpha1/namespaces/{namespace}/investigations": {
       "get": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "list or watch objects of kind Investigation",
         "operationId": "listInvestigation",
         "parameters": [
@@ -1004,9 +986,7 @@
         }
       },
       "post": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "create an Investigation",
         "operationId": "createInvestigation",
         "parameters": [
@@ -1128,9 +1108,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "delete collection of Investigation",
         "operationId": "deletecollectionInvestigation",
         "parameters": [
@@ -1305,9 +1283,7 @@
     },
     "/apis/investigations.grafana.app/v0alpha1/namespaces/{namespace}/investigations/{name}": {
       "get": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "read the specified Investigation",
         "operationId": "getInvestigation",
         "responses": {
@@ -1340,9 +1316,7 @@
         }
       },
       "put": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "replace the specified Investigation",
         "operationId": "replaceInvestigation",
         "parameters": [
@@ -1444,9 +1418,7 @@
         }
       },
       "delete": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "delete an Investigation",
         "operationId": "deleteInvestigation",
         "parameters": [
@@ -1546,9 +1518,7 @@
         }
       },
       "patch": {
-        "tags": [
-          "Investigation"
-        ],
+        "tags": ["Investigation"],
         "description": "partially update the specified Investigation",
         "operationId": "updateInvestigation",
         "parameters": [
@@ -1700,11 +1670,7 @@
     "schemas": {
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.Investigation": {
         "type": "object",
-        "required": [
-          "metadata",
-          "spec",
-          "status"
-        ],
+        "required": ["metadata", "spec", "status"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1837,9 +1803,7 @@
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationDatasourceRef": {
         "description": "DatasourceRef is a reference to a datasource",
         "type": "object",
-        "required": [
-          "uid"
-        ],
+        "required": ["uid"],
         "properties": {
           "uid": {
             "type": "string",
@@ -1849,11 +1813,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndex": {
         "type": "object",
-        "required": [
-          "metadata",
-          "spec",
-          "status"
-        ],
+        "required": ["metadata", "spec", "status"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -1903,12 +1863,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndexCollectableSummary": {
         "type": "object",
-        "required": [
-          "id",
-          "title",
-          "logoPath",
-          "origin"
-        ],
+        "required": ["id", "title", "logoPath", "origin"],
         "properties": {
           "id": {
             "type": "string",
@@ -1994,10 +1949,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndexList": {
         "type": "object",
-        "required": [
-          "metadata",
-          "items"
-        ],
+        "required": ["metadata", "items"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -2043,11 +1995,7 @@
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndexPerson": {
         "description": "Person represents a user profile with basic information",
         "type": "object",
-        "required": [
-          "uid",
-          "name",
-          "gravatarUrl"
-        ],
+        "required": ["uid", "name", "gravatarUrl"],
         "properties": {
           "gravatarUrl": {
             "description": "URL to user's Gravatar image",
@@ -2068,11 +2016,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndexSpec": {
         "type": "object",
-        "required": [
-          "title",
-          "owner",
-          "investigationSummaries"
-        ],
+        "required": ["title", "owner", "investigationSummaries"],
         "properties": {
           "investigationSummaries": {
             "description": "Array of investigation summaries",
@@ -2129,11 +2073,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndexViewMode": {
         "type": "object",
-        "required": [
-          "mode",
-          "showComments",
-          "showTooltips"
-        ],
+        "required": ["mode", "showComments", "showTooltips"],
         "properties": {
           "mode": {
             "type": "string",
@@ -2151,10 +2091,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationIndexstatusOperatorState": {
         "type": "object",
-        "required": [
-          "lastEvaluation",
-          "state"
-        ],
+        "required": ["lastEvaluation", "state"],
         "properties": {
           "descriptiveState": {
             "description": "descriptiveState is an optional more descriptive state field which has no requirements on format",
@@ -2181,10 +2118,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationList": {
         "type": "object",
-        "required": [
-          "metadata",
-          "items"
-        ],
+        "required": ["metadata", "items"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -2230,11 +2164,7 @@
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationPerson": {
         "description": "Person represents a user profile with basic information",
         "type": "object",
-        "required": [
-          "uid",
-          "name",
-          "gravatarUrl"
-        ],
+        "required": ["uid", "name", "gravatarUrl"],
         "properties": {
           "gravatarUrl": {
             "description": "URL to user's Gravatar image",
@@ -2256,14 +2186,7 @@
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationQuery": {
         "description": "Query represents a data query",
         "type": "object",
-        "required": [
-          "refId",
-          "queryType",
-          "editorMode",
-          "supportingQueryType",
-          "legendFormat",
-          "expr"
-        ],
+        "required": ["refId", "queryType", "editorMode", "supportingQueryType", "legendFormat", "expr"],
         "properties": {
           "editorMode": {
             "type": "string",
@@ -2382,11 +2305,7 @@
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationTimeRange": {
         "description": "TimeRange represents a time range with both absolute and relative values",
         "type": "object",
-        "required": [
-          "from",
-          "to",
-          "raw"
-        ],
+        "required": ["from", "to", "raw"],
         "properties": {
           "from": {
             "type": "string",
@@ -2408,10 +2327,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationV0alpha1TimeRangeRaw": {
         "type": "object",
-        "required": [
-          "from",
-          "to"
-        ],
+        "required": ["from", "to"],
         "properties": {
           "from": {
             "type": "string",
@@ -2425,11 +2341,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationViewMode": {
         "type": "object",
-        "required": [
-          "mode",
-          "showComments",
-          "showTooltips"
-        ],
+        "required": ["mode", "showComments", "showTooltips"],
         "properties": {
           "mode": {
             "type": "string",
@@ -2447,10 +2359,7 @@
       },
       "com.github.grafana.grafana.apps.investigations.pkg.apis.investigations.v0alpha1.InvestigationstatusOperatorState": {
         "type": "object",
-        "required": [
-          "lastEvaluation",
-          "state"
-        ],
+        "required": ["lastEvaluation", "state"],
         "properties": {
           "descriptiveState": {
             "description": "descriptiveState is an optional more descriptive state field which has no requirements on format",
@@ -2478,13 +2387,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResource": {
         "description": "APIResource specifies the name of a resource and whether it is namespaced.",
         "type": "object",
-        "required": [
-          "name",
-          "singularName",
-          "namespaced",
-          "kind",
-          "verbs"
-        ],
+        "required": ["name", "singularName", "namespaced", "kind", "verbs"],
         "properties": {
           "categories": {
             "description": "categories is a list of the grouped resources this resource belongs to (e.g. 'all')",
@@ -2549,10 +2452,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.APIResourceList": {
         "description": "APIResourceList is a list of APIResource, it is used to expose the name of the resources supported in a specific group and version, and if the resource is namespaced.",
         "type": "object",
-        "required": [
-          "groupVersion",
-          "resources"
-        ],
+        "required": ["groupVersion", "resources"],
         "properties": {
           "apiVersion": {
             "description": "APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources",
@@ -2791,9 +2691,7 @@
                 }
               ]
             },
-            "x-kubernetes-list-map-keys": [
-              "uid"
-            ],
+            "x-kubernetes-list-map-keys": ["uid"],
             "x-kubernetes-list-type": "map",
             "x-kubernetes-patch-merge-key": "uid",
             "x-kubernetes-patch-strategy": "merge"
@@ -2815,12 +2713,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.OwnerReference": {
         "description": "OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.",
         "type": "object",
-        "required": [
-          "apiVersion",
-          "kind",
-          "name",
-          "uid"
-        ],
+        "required": ["apiVersion", "kind", "name", "uid"],
         "properties": {
           "apiVersion": {
             "description": "API version of the referent.",
@@ -2986,10 +2879,7 @@
       "io.k8s.apimachinery.pkg.apis.meta.v1.WatchEvent": {
         "description": "Event represents a single event to a watched resource.",
         "type": "object",
-        "required": [
-          "type",
-          "object"
-        ],
+        "required": ["type", "object"],
         "properties": {
           "object": {
             "description": "Object is:\n * If Type is Added or Modified: the new state of the object.\n * If Type is Deleted: the state of the object immediately before deletion.\n * If Type is Error: *Status is recommended; other types may make sense\n   depending on context.",
