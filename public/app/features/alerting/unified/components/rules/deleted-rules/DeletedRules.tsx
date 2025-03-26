@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { dateTimeFormat, dateTimeFormatTimeAgo } from '@grafana/data';
-import { Button, Column, InteractiveTable, Stack } from '@grafana/ui';
+import { Button, Column, EmptyState, InteractiveTable, Stack } from '@grafana/ui';
 import { Trans, t } from 'app/core/internationalization';
 import { GrafanaRuleDefinition, RulerGrafanaRuleDTO } from 'app/types/unified-alerting-dto';
 
@@ -11,10 +11,10 @@ import { UpdatedByUser } from '../../rule-viewer/tabs/version-history/UpdatedBy'
 import { ConfirmDeletedPermanentlyModal } from './ConfirmDeletePermanantlyModal';
 import { ConfirmRestoreDeletedRuleModal } from './ConfirmRestoreDeletedRuleModal';
 
-export const DELETED_RULES_PAGE_SIZE = 30;
+const DELETED_RULES_PAGE_SIZE = 30;
 
 interface DeletedRulesProps {
-  deletedRules: Array<RulerGrafanaRuleDTO<GrafanaRuleDefinition>>
+  deletedRules: Array<RulerGrafanaRuleDTO<GrafanaRuleDefinition>>;
 }
 export function DeletedRules({ deletedRules }: DeletedRulesProps) {
   const [confirmRestore, setConfirmRestore] = useState(false);
@@ -23,10 +23,17 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
   const [guidToDelete, setGuidToDelete] = useState<string | undefined>();
   const unknown = t('alerting.deletedRules.unknown', 'Unknown');
 
-  const showConfirmation = (id: string) => {
-    const ruleTorestore = deletedRules.find(
-      (rule) => getRowId(rule.grafana_alert) === id
+  if (deletedRules.length === 0) {
+    return (
+      <EmptyState
+        message={t('alerting.deleted-rules.empty-state-title', 'No recently deleted rules found')}
+        variant="not-found"
+      />
     );
+  }
+
+  const showConfirmation = (id: string) => {
+    const ruleTorestore = deletedRules.find((rule) => getRowId(rule.grafana_alert) === id);
     if (!ruleTorestore) {
       return;
     }
@@ -57,7 +64,7 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
   const columns: Array<Column<(typeof deletedRules)[0]>> = [
     {
       id: 'createdBy',
-      header: t('alerting.deletedRules.table.updatedBy', 'Deleted By'),
+      header: t('alerting.deleted-rules.table.updatedBy', 'Deleted By'),
       disableGrow: true,
       cell: ({ row }) => {
         return <UpdatedByUser user={row.original.grafana_alert.updated_by} />;
@@ -65,7 +72,7 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
     },
     {
       id: 'title',
-      header: t('alerting.deletedRules.table.title', 'Title'),
+      header: t('alerting.deleted-rules.table.title', 'Title'),
       disableGrow: true,
       cell: ({ row }) => {
         return row.original.grafana_alert.title;
@@ -73,7 +80,7 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
     },
     {
       id: 'folder',
-      header: t('alerting.deletedRules.table.folder', 'Folder'),
+      header: t('alerting.deleted-rules.table.folder', 'Folder'),
       disableGrow: true,
       cell: ({ row }) => {
         return row.original.grafana_alert.namespace_uid;
@@ -81,7 +88,7 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
     },
     {
       id: 'group',
-      header: t('alerting.deletedRules.table.group', 'Group'),
+      header: t('alerting.deleted-rules.table.group', 'Group'),
       disableGrow: true,
       cell: ({ row }) => {
         return row.original.grafana_alert.rule_group;
@@ -89,7 +96,7 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
     },
     {
       id: 'created',
-      header: t('alerting.deletedRules.table.updated', 'Deletion Date'),
+      header: t('alerting.deleted-rules.table.updated', 'Deletion Date'),
       disableGrow: true,
       cell: ({ row }) => {
         const value = row.original.grafana_alert.updated;
@@ -110,11 +117,10 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
               size="sm"
               icon="history"
               onClick={() => {
-                showConfirmation(getRowId(row.original.grafana_alert)
-                );
+                showConfirmation(getRowId(row.original.grafana_alert));
               }}
             >
-              <Trans i18nKey="alerting.deletedRules.restore">Restore</Trans>
+              <Trans i18nKey="alerting.deleted-rules.restore">Restore</Trans>
             </Button>
           </Stack>
         );
@@ -170,5 +176,5 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
 }
 
 function getRowId(row: GrafanaRuleDefinition) {
-  return `${row.namespace_uid}${row.namespace_uid}${row.title}${row.uid}${row.version}`;
+  return row.guid || row.uid;
 }

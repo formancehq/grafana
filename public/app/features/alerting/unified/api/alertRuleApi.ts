@@ -13,6 +13,7 @@ import {
   AlertQuery,
   Annotations,
   GrafanaAlertStateDecision,
+  GrafanaRuleDefinition,
   Labels,
   PostableRulerRuleGroupDTO,
   PromRulesResponse,
@@ -418,11 +419,16 @@ export const alertRuleApi = alertingApi.injectEndpoints({
       }),
       keepUnusedDataFor: 0,
     }),
-    getDeletedRules: build.query<RulerGrafanaRulesConfigDTO, {}>({
+    getDeletedRules: build.query<Array<RulerGrafanaRuleDTO<GrafanaRuleDefinition>>, {}>({
       query: () => ({
         url: `/api/ruler/${GRAFANA_RULES_SOURCE_NAME}/api/v1/rules/`,
         params: { deleted: 'true' },
       }),
+      transformResponse: (response: RulerGrafanaRulesConfigDTO) => {
+        const values = Object.values(response);
+        const deletedRules = values.length > 0 ? values[0][0]?.rules : [];
+        return deletedRules;
+      },
     }),
     removePermanentlyDeletedRule: build.mutation<void,{ guid: string }>({
       query: ({ guid }) => ({
