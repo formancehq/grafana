@@ -17,9 +17,9 @@ export const RawQueryEditor = (props: RawQueryEditorProps) => {
           <EditorField label="Process query as" tooltip="Define how the query response should be processed.">
             <Combobox
               options={[
-                { label: 'Time series', value: 'time_series' },
+                { label: 'Metrics', value: 'metrics' },
                 { label: 'Logs', value: 'logs' },
-                { label: 'Table', value: 'table' },
+                { label: 'Raw data', value: 'raw_data' },
               ]}
               onChange={(e) =>
                 props.onChange({
@@ -30,19 +30,9 @@ export const RawQueryEditor = (props: RawQueryEditorProps) => {
               value={props.query.rawQuerySettings?.processAs}
             />
           </EditorField>
-          {props.query.rawQuerySettings?.processAs === 'time_series' && (
+          {props.query.rawQuerySettings?.processAs === 'metrics' && (
             <EditorRow>
-              <EditorField label="Time field">
-                <Input
-                  onChange={(e) =>
-                    props.onChange({
-                      ...props.query,
-                      rawQuerySettings: { ...props.query.rawQuerySettings, timeField: e.currentTarget.value },
-                    })
-                  }
-                />
-              </EditorField>
-              <EditorField label="Value field" description="aggregation ID to use as value field. In case of multiple, separate aggregation IDs with a comma">
+              <EditorField label="Aggregation IDs" description="Enter the aggregation ID(s) to be processed into data frames. In case of multiple, separate IDs with a comma">
                 <Input
                   onChange={(e) =>
                     props.onChange({

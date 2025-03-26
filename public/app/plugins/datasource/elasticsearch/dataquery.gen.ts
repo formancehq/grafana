@@ -408,7 +408,7 @@ export interface ElasticsearchDataQuery extends common.DataQuery {
   rawQuerySettings?: {
     timeField?: string;
     valueField?: string;
-    processAs?: ('logs' | 'time_series' | 'table');
+    processAs?: ('logs' | 'metrics' | 'raw_data');
   };
   /**
    * Name of time field
