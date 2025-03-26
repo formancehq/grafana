@@ -128,9 +128,6 @@ func (c *baseClientImpl) encodeBatchRequests(requests []*multiRequest) ([]byte, 
 				return nil, fmt.Errorf("unknown request type: %T", r.body)
 		}
 		
-		
-
-		// body = "{  \"size\": 2,  \"query\": {    \"bool\": {      \"must\": [        { \"match\": { \"Carrier\": \"JetBeats\" }},        { \"match\": { \"FlightDelayType\": \"No Delay\" }}      ]    }  }}"
 
 		body = strings.ReplaceAll(body, "$__interval_ms", strconv.FormatInt(r.interval.Milliseconds(), 10))
 		body = strings.ReplaceAll(body, "$__interval", r.interval.String())
