@@ -1066,6 +1066,11 @@ export interface FeatureToggles {
   */
   unifiedStorageGrpcConnectionPool?: boolean;
   /**
+  * Enables the UI functionality to delete permanently alert rules
+  * @default true
+  */
+  alertingDeletePermanently?: boolean;
+  /**
   * Enables the UI functionality to recover and view deleted alert rules
   * @default true
   */

@@ -979,6 +979,10 @@ const (
 	// Enables the unified storage grpc connection pool
 	FlagUnifiedStorageGrpcConnectionPool = "unifiedStorageGrpcConnectionPool"
 
+	// FlagAlertingDeletePermanently
+	// Enables the UI functionality to delete permanently alert rules
+	FlagAlertingDeletePermanently = "alertingDeletePermanently"
+
 	// FlagAlertingRuleRecoverDeleted
 	// Enables the UI functionality to recover and view deleted alert rules
 	FlagAlertingRuleRecoverDeleted = "alertingRuleRecoverDeleted"
