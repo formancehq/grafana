@@ -6,6 +6,7 @@ import { Trans, t } from 'app/core/internationalization';
 import { GrafanaRuleDefinition, RulerGrafanaRuleDTO } from 'app/types/unified-alerting-dto';
 
 import { trackDeletedRuleRestoreFail, trackDeletedRuleRestoreSuccess } from '../../../Analytics';
+import { shouldAllowRemovePermanentlyDeletedRules } from '../../../featureToggles';
 import { UpdatedByUser } from '../../rule-viewer/tabs/version-history/UpdatedBy';
 
 import { ConfirmDeletedPermanentlyModal } from './ConfirmDeletePermanantlyModal';
@@ -60,6 +61,30 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
     setConfirmDeletePermanently(true);
     setGuidToDelete(ruleTorestore.grafana_alert.guid);
   };
+
+  const shouldAllowRemovePermanently = shouldAllowRemovePermanentlyDeletedRules();
+
+  const removePermanentlyColumn: Column<RulerGrafanaRuleDTO<GrafanaRuleDefinition>> = {
+    id: 'delete-permanently',
+    disableGrow: true,
+    cell: ({ row }) => {
+      return (
+        <Stack direction="row" alignItems="center" justifyContent="flex-end">
+          <Button
+            variant="destructive"
+            size="sm"
+            icon="trash-alt"
+            onClick={() => {
+              showDeleteConfirmation(getRowId(row.original.grafana_alert)
+              );
+            }}
+          >
+            <Trans i18nKey="alerting.deletedRules.delete-permanently">Delete permanently</Trans>
+          </Button>
+        </Stack>
+      );
+    },
+  }
 
   const columns: Array<Column<(typeof deletedRules)[0]>> = [
     {
@@ -126,27 +151,9 @@ export function DeletedRules({ deletedRules }: DeletedRulesProps) {
         );
       },
     },
-    {
-      id: 'delete-permanently',
-      disableGrow: true,
-      cell: ({ row }) => {
-        return (
-          <Stack direction="row" alignItems="center" justifyContent="flex-end">
-            <Button
-              variant="destructive"
-              size="sm"
-              icon="trash-alt"
-              onClick={() => {
-                showDeleteConfirmation(getRowId(row.original.grafana_alert)
-                );
-              }}
-            >
-              <Trans i18nKey="alerting.deletedRules.delete-permanently">Delete permanently</Trans>
-            </Button>
-          </Stack>
-        );
-      },
-    },
+    ...(shouldAllowRemovePermanently
+      ? [removePermanentlyColumn]
+      : []),
   ];
 
   return (
