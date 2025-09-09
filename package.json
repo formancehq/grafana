@@ -78,7 +78,7 @@
     "@betterer/cli": "5.4.0",
     "@cypress/webpack-preprocessor": "6.0.2",
     "@emotion/eslint-plugin": "11.12.0",
-    "@grafana/eslint-config": "8.0.0",
+    "@grafana/eslint-config": "8.2.0",
     "@grafana/eslint-plugin": "link:./packages/grafana-eslint-rules",
     "@grafana/plugin-e2e": "1.17.1",
     "@grafana/tsconfig": "^2.0.0",
