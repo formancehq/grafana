@@ -2851,7 +2851,7 @@ __metadata:
     glob: "npm:11.0.1"
     i18next: "npm:^24.0.0"
     lodash: "npm:4.17.21"
-    lru-cache: "npm:11.0.2"
+    lru-cache: "npm:11.2.1"
     monaco-editor: "npm:0.34.1"
     prismjs: "npm:1.30.0"
     react: "npm:18.3.1"
@@ -17879,7 +17879,7 @@ __metadata:
     leven: "npm:^4.0.0"
     lodash: "npm:4.17.21"
     logfmt: "npm:^1.3.2"
-    lru-cache: "npm:11.0.2"
+    lru-cache: "npm:11.2.1"
     lru-memoize: "npm:^1.1.0"
     lucene: "npm:^2.1.1"
     marked: "npm:15.0.6"
@@ -21511,10 +21511,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lru-cache@npm:11.0.2, lru-cache@npm:^11.0.0":
-  version: 11.0.2
-  resolution: "lru-cache@npm:11.0.2"
-  checksum: 10/25fcb66e9d91eaf17227c6abfe526a7bed5903de74f93bfde380eb8a13410c5e8d3f14fe447293f3f322a7493adf6f9f015c6f1df7a235ff24ec30f366e1c058
+"lru-cache@npm:11.2.1, lru-cache@npm:^11.0.0":
+  version: 11.2.1
+  resolution: "lru-cache@npm:11.2.1"
+  checksum: 10/cd1cc7a8d7617ede28702f80449d9c3f851bb6671d5ec37b34ca10ffb18d5aa068d798ed057e73092f25e563202d33ab6562c356b0c1ff4a6065525dbe577b1c
   languageName: node
   linkType: hard
 
