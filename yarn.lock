@@ -6492,14 +6492,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-types/button@npm:3.10.2, @react-types/button@npm:^3.10.2":
-  version: 3.10.2
-  resolution: "@react-types/button@npm:3.10.2"
+"@react-types/button@npm:3.14.0, @react-types/button@npm:^3.10.2":
+  version: 3.14.0
+  resolution: "@react-types/button@npm:3.14.0"
   dependencies:
-    "@react-types/shared": "npm:^3.27.0"
+    "@react-types/shared": "npm:^3.32.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-  checksum: 10/fbc3ac3c11d6ba0f509fa8b26f7de96d77d3ef769fd474d56f1a7f430f727698dd4eb29f0f1dd75de4eb3a3cf9a805a2966e5509c60d1e5ed530f37d1a3ceb58
+  checksum: 10/458211f62b47a93e505eb14e24ae3979ce569b00327efbb32e180eea6e964a0ee6f9d86cf35c6d2bee3fbff1737a5ca4780ec82b0e151f8e90fdefcca132b136
   languageName: node
   linkType: hard
 
@@ -6515,35 +6515,35 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-types/menu@npm:3.9.14":
-  version: 3.9.14
-  resolution: "@react-types/menu@npm:3.9.14"
+"@react-types/menu@npm:3.10.4":
+  version: 3.10.4
+  resolution: "@react-types/menu@npm:3.10.4"
   dependencies:
-    "@react-types/overlays": "npm:^3.8.12"
-    "@react-types/shared": "npm:^3.27.0"
+    "@react-types/overlays": "npm:^3.9.1"
+    "@react-types/shared": "npm:^3.32.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-  checksum: 10/81ca0e57bd5affb4f53381334a876070c9c072119853541bd54f8ada91d584c717f6d604c01a648524c61b2b0e9cb2d51870ab5022f470961947f31ada01fd9c
+  checksum: 10/8792f6f972e05686376efc8092fe8b784f0b94cbbbe8fafddc337ae64eb947ce1aeab93e9233e354a603e8b45e5fe9bf50f0758118080c74bf5f65529950629d
   languageName: node
   linkType: hard
 
-"@react-types/overlays@npm:3.8.12, @react-types/overlays@npm:^3.8.12":
-  version: 3.8.12
-  resolution: "@react-types/overlays@npm:3.8.12"
+"@react-types/overlays@npm:3.9.1, @react-types/overlays@npm:^3.8.12, @react-types/overlays@npm:^3.9.1":
+  version: 3.9.1
+  resolution: "@react-types/overlays@npm:3.9.1"
   dependencies:
-    "@react-types/shared": "npm:^3.27.0"
+    "@react-types/shared": "npm:^3.32.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-  checksum: 10/3510add3f70c99a56b3dc160a51f5f71e60e958fd3753f2379eb904ff5442fe30d17841dee79ae77ae3b872a003757995074f45d701453186518dd357d204901
+  checksum: 10/994de8c23635ae7a78a45c3b14cf813dadabf4d3504693737a8798fe23d19495ddb6a8edd50e1177cecee671731c20e0bf5e5b6b88ced4d1caf3ff0e71ea9e80
   languageName: node
   linkType: hard
 
-"@react-types/shared@npm:3.27.0, @react-types/shared@npm:^3.27.0":
-  version: 3.27.0
-  resolution: "@react-types/shared@npm:3.27.0"
+"@react-types/shared@npm:3.32.0, @react-types/shared@npm:^3.27.0, @react-types/shared@npm:^3.32.0":
+  version: 3.32.0
+  resolution: "@react-types/shared@npm:3.32.0"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0 || ^19.0.0-rc.1
-  checksum: 10/359be934dda6404824479d0dfdf9e694414252da4946b4e486f3cc546a080844a7d4f20507041d3f8f6f5a316c05b28785ca3f4377a7f4ea397ed1f21c2646af
+  checksum: 10/6dd7e2a20e1a2f2a767bfe784ff7b38a7f6abe6569b4d2a8e4657af25f69b72ca72cb4f1d3d2a2c51f95b183e9e33f6e0f50f18f34e2d781a744e337356da7d2
   languageName: node
   linkType: hard
 
@@ -17735,10 +17735,10 @@ __metadata:
     "@react-aria/overlays": "npm:3.25.0"
     "@react-aria/utils": "npm:3.27.0"
     "@react-awesome-query-builder/ui": "npm:6.6.15"
-    "@react-types/button": "npm:3.10.2"
-    "@react-types/menu": "npm:3.9.14"
-    "@react-types/overlays": "npm:3.8.12"
-    "@react-types/shared": "npm:3.27.0"
+    "@react-types/button": "npm:3.14.0"
+    "@react-types/menu": "npm:3.10.4"
+    "@react-types/overlays": "npm:3.9.1"
+    "@react-types/shared": "npm:3.32.0"
     "@reduxjs/toolkit": "npm:2.5.1"
     "@rsdoctor/webpack-plugin": "npm:^0.4.6"
     "@rtk-query/codegen-openapi": "npm:^2.0.0"
