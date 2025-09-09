@@ -15940,11 +15940,11 @@ __metadata:
   linkType: hard
 
 "eslint-plugin-no-barrel-files@npm:^1.1.1":
-  version: 1.2.0
-  resolution: "eslint-plugin-no-barrel-files@npm:1.2.0"
+  version: 1.2.2
+  resolution: "eslint-plugin-no-barrel-files@npm:1.2.2"
   dependencies:
     "@typescript-eslint/utils": "npm:^8.13.0"
-  checksum: 10/da54a4930ddfd7d14bd82766e857af9eea5315125a2599d5ba03326530214e0d416f78915335d6c239b19df21b989196ffc4146919eff05477cef7e34261b946
+  checksum: 10/9ab622f211270487016849a4da1d275890340721db3301fc90d2b96af5bb72d49934114c5e0fe1c3b69a354a9e0841b67a19e8c4fa4c6e35a02e3a3bc0973b1e
   languageName: node
   linkType: hard
 
