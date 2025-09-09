@@ -18701,11 +18701,11 @@ __metadata:
   linkType: hard
 
 "i18next-browser-languagedetector@npm:^8.0.0":
-  version: 8.0.2
-  resolution: "i18next-browser-languagedetector@npm:8.0.2"
+  version: 8.2.0
+  resolution: "i18next-browser-languagedetector@npm:8.2.0"
   dependencies:
     "@babel/runtime": "npm:^7.23.2"
-  checksum: 10/2d994fbec7d106da7592d3b22a058f03be59a67e0ef7436bc1b5500dca778dc5eb77df34b4e0a054123d5538ef5f8b5c19cd1d7b862dc3403c4571b48c9cabe8
+  checksum: 10/b2e78feb256e92b219cd378b38af00404b8f667473f886d64c53588df0592bce145ad29ad7d8238c75f78a9c79f02c84d400569dd5c0ab94c751ac62a4e1f8dd
   languageName: node
   linkType: hard
 
